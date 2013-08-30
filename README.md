@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/briancain/mtd-dashboard.png?branch=master)](https://travis-ci.org/briancain/mtd-dashboard)
+
 # Moving Target Defense Dashboard
 
 A front end dashboard framework for Moving Target Defense
