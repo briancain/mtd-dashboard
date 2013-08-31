@@ -4,10 +4,10 @@ This todo will contain important tasks and milestones that will be achieved in t
 
 ## Tasks
 
-1. Create task list
-2. Do task list
+1. Complete Milestone 1 (see issues tab on github)
 
 ## Milestones
 
-1. Create milestones
-2. Do milestones
+1. Milestone 1 (Defined on issues tab)
+2. Milestone 2 (???)
+3. ....
