@@ -1,4 +1,8 @@
 MtdDashboard::Application.routes.draw do
+  root :to => 'login#index'
+
+  get "login/index"
+
   get "dashboard/home"
 
   # The priority is based upon order of creation:
