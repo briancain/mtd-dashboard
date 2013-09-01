@@ -12,8 +12,13 @@ The goal of this project is to provide a usable interface that makes interacting
 
 ## Additional Frameworks
 
-List other frameworks used here
+Other frameworks used in this project
+
+- [Mongoid](http://mongoid.org/en/mongoid/index.html)
+- [LESS Rails](https://rubygems.org/gems/less-rails)
+- [Capybara](https://github.com/jnicklas/capybara)
+- [Devise](https://github.com/plataformatec/devise)
 
 ## More information
 
-More info
+TBD
