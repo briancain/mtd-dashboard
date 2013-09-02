@@ -1,8 +1,9 @@
 MtdDashboard::Application.routes.draw do
-  root :to => 'login#index'
+  devise_for :users
+
+  root :to => 'dashboard#home'
 
   get "login/index"
-
   get "dashboard/home"
 
   # The priority is based upon order of creation:
