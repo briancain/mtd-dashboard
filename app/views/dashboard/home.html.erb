@@ -1,3 +1,6 @@
 <% provide(:title, 'Home') %>
 <h1>Moving Target Defense Dashboard</h1>
 <p>Static Page</p>
+<% @users.each do |user| %>
+  <p>User: <%= user.name %> </p>
+<% end %>

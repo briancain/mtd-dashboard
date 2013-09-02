@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.14'
-gem 'mongoid', '~> 3.0.0'
+gem 'mongoid', '~> 3.0.1'
+gem 'devise', ">= 2.1.2"
 
 group :development, :test do
   gem 'rspec-rails', '2.11.0'
