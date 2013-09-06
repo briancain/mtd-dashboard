@@ -1,4 +1,6 @@
 MtdDashboard::Application.routes.draw do
+  get "v1/users"
+
   devise_for :users
 
   root :to => 'dashboard#home'
