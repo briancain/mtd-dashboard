@@ -2,10 +2,13 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.14'
 gem 'mongoid', '~> 3.0.1'
-gem 'devise', ">= 2.1.2"
+gem 'devise', "3.0.3"
+
+# JBuilder for formatting data in json
+gem 'jbuilder'
 
 group :development, :test do
-  gem 'rspec-rails', '2.11.0'
+  gem 'rspec-rails', '2.14.0'
 end
 
 # Gems used only for assets and not required in production environments by default.
@@ -20,5 +23,6 @@ end
 gem 'jquery-rails', '2.0.2'
 
 group :test do
-  gem 'capybara', '1.1.2'
+  gem 'capybara', '2.1.0'
+  gem 'database_cleaner'
 end

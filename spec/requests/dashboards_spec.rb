@@ -12,7 +12,8 @@ describe "Dashboard Pages" do
 
     it "should have the page title '#{page_base_title} | Home'" do
       visit '/dashboard/home'
-      page.should have_selector('title', :text => "#{page_base_title} | Home")
+      expect(page).to have_title("#{page_base_title} | Home")
+      # page.should have_selector('title', :text => "#{page_base_title} | Home")
     end
   end
 end
