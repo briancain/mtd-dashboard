@@ -1,3 +1,10 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+@DashboardCtrl = ($scope) ->
+  $scope.entries = [
+    {name: "America"}
+    {name: "Hack the Planet"}
+    {name: "Moving Target Defense"}
+  ]
+
+  $scope.addEntry = ->
+    $scope.entries.push($scope.newEntry)
+    $scope.newEntry = {}

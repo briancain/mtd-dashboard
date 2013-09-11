@@ -20,6 +20,8 @@ group :assets do
   gem 'uglifier', '1.2.3'
 
   gem 'therubyracer'
+
+  gem 'angularjs-rails'
 end
 
 gem 'jquery-rails', '2.0.2'
