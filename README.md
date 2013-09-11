@@ -12,7 +12,7 @@ The goal of this project is to provide a usable interface that makes interacting
 
 ## Up and Running
 
-RVM is recommended while running this project. First, this project is only going to support Ruby 1.9.3. 1.8.7/2.0.0 might work, but I won't be testing against it. Next, make sure you have mongoDB installed and running. Now to get all of the gems installed do a simple:
+RVM is recommended while running this project. First, this project is only going to support Ruby 1.9.3. 1.8.7/2.0.0 might work, but I won't be testing against it. Next, make sure you have mongoDB installed and running ( __NOTE__ : This may not be a trivial task if you are using OSX. It seems like brew and ports don't provide the components required to get mongo up and running....however apt-get is able to set up mongo just fine). Now to get all of the gems installed do a simple:
 
     $ bundle install
 
@@ -40,6 +40,7 @@ Other frameworks used in this project
 - [Jbuilder](https://github.com/rails/jbuilder)
 - [LESS Rails](https://rubygems.org/gems/less-rails)
 - [Mongoid](http://mongoid.org/en/mongoid/index.html)
+- [Twitter Bootstrap](http://getbootstrap.com/)
 
 ## More information
 
