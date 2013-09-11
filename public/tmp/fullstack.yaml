@@ -1,0 +1,72 @@
+goals:
+  ecommerce:
+    name: eCommerce frontend
+    roles:
+      - weblb
+      - webapp
+      - msgbroker
+      - database
+      - workerapp
+
+roles:
+  weblb:
+    name: Web application load balancer
+    min: 2
+    exports:
+      http:  { type: single_port, protocol: tcp }
+      https: { type: single_port, protocol: tcp }
+    imports:
+      - webapp: http
+      - webapp: https
+
+  webapp:
+    name: Web application
+    min: 3
+    exports:
+      http:  { type: single_port, protocol: tcp }
+      https: { type: single_port, protocol: tcp }
+    imports:
+      - database: querying
+      - msgbroker: amqp
+
+  msgbroker:
+    name: RabbitMQ message broker
+    min: 3
+    exports:
+      amqp: { type: single_port, protocol: tcp }
+
+  database:
+    name: MySQL database
+    minumum: 3
+    exports:
+      querying: { type: single_port, protocol: tcp }
+
+  workerapp:
+    name: Background worker application
+    min: 2
+    imports:
+      - database: querying
+      - msgbroker: amqp
+
+clusters:
+  # n-to-m cluster
+  web:
+    name: Web application cluster
+    strategy: nginx
+    roles:
+      - weblb: lb
+      - webapp: target
+
+  # n homogeneous cluster -- self-contained
+  msgbroker:
+    name: RabbitMQ cluster
+    strategy: rabbitmq
+    roles:
+      - msgbroker
+
+  # 1-to-n master-slave cluster -- self-contained
+  database:
+    name: MySQL replication cluster
+    strategy: mysql
+    roles:
+      - database
