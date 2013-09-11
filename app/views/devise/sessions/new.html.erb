@@ -1,9 +1,10 @@
-<div class="container">
+<% provide(:title, 'Sign in') %>
+<div class="container" id="session">
     <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'form-signin' }) do |f| %>
       <h2 class="form-signin-heading">Please sign in</h2>
-      <div><%= f.email_field :email, :autofocus => true , :placeholder => "Email Address", :class => "form-control"%></div>
+      <div><%= f.email_field :email, :autofocus => true , :placeholder => "Email Address", :class => "form-control", :id => 'Login' %></div>
 
-      <div><%= f.password_field :password, :class => "form-control", :placeholder => "Password" %></div>
+      <div><%= f.password_field :password, :class => "form-control", :placeholder => "Password", :id => 'Password' %></div>
 
       <% if devise_mapping.rememberable? -%>
         <label class="checkbox">
@@ -11,7 +12,7 @@
         </label>
       <% end -%>
 
-      <div><%= f.submit "Sign in", :class => "btn btn-lg btn-primary btn-block" %></div>
+      <div><%= f.submit "Sign in", :class => "btn btn-lg btn-primary btn-block", :id => 'Sign in' %></div>
     <% end %>
 
     <center><%= render "devise/shared/links" %></center>
