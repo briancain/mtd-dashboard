@@ -12,6 +12,12 @@
     li {
         max-width: 50%;
     }
+
+    #editor {
+        position: absolute;
+        width: 500px;
+        height: 400px;
+    }
   </style>
 </head>
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -57,9 +63,8 @@
 </div>
 
 <div class="container">
-  <div class="starter-template">
-    <h1>Hello</h1>
-
+  <h1 align="center">Element Demo</h1>
+  <center>
     <div ng-controller="DashboardCtrl">
       <form class="form-inline" role="form" ng-submit="addEntry()">
         <div class="form-group">
@@ -76,5 +81,28 @@
         </ul>
       </center>
     <div>
-  </div>
+  </center>
+
+  <div id="editor"></div>
+
+  <script src="//code.jquery.com/jquery.js"></script>
+  <script src="/js/ace.js"></script>
+  <script src="/js/mode-yaml.js"></script>
+  <script>
+    var editor = ace.edit("editor"),
+        YAMLMode = require("ace/mode/yaml").Mode;
+
+    editor.getSession().setMode(new YAMLMode());
+    editor.getSession().setTabSize(2);
+    editor.getSession().setUseWrapMode(true);
+    editor.getSession().setUseSoftTabs(true);
+
+    $.get('/tmp/fullstack.yaml', function(data) {
+        editor.insert(data);
+    });
+
+    editor.gotoLine(0);
+  </script>
 </div>
+
+
