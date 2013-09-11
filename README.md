@@ -2,7 +2,7 @@
 
 A front end dashboard framework for Moving Target Defense.
 
-### Build Status
+### Project Status
 
 [![Build Status](https://travis-ci.org/briancain/mtd-dashboard.png?branch=master)](https://travis-ci.org/briancain/mtd-dashboard)
 
@@ -33,10 +33,13 @@ It should tell you what port it's currently being served on.
 
 Other frameworks used in this project
 
-- [Mongoid](http://mongoid.org/en/mongoid/index.html)
-- [LESS Rails](https://rubygems.org/gems/less-rails)
+- [AngularJS](http://www.angularjs.org/)
+- [AngularUI](http://angular-ui.github.io/)
 - [Capybara](https://github.com/jnicklas/capybara)
 - [Devise](https://github.com/plataformatec/devise)
+- [Jbuilder](https://github.com/rails/jbuilder)
+- [LESS Rails](https://rubygems.org/gems/less-rails)
+- [Mongoid](http://mongoid.org/en/mongoid/index.html)
 
 ## More information
 
