@@ -33,6 +33,7 @@ It should tell you what port it's currently being served on.
 
 Other frameworks used in this project
 
+- [ACE](http://ace.c9.io/)
 - [AngularJS](http://www.angularjs.org/)
 - [AngularUI](http://angular-ui.github.io/)
 - [Capybara](https://github.com/jnicklas/capybara)
