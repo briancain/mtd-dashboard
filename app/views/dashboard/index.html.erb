@@ -83,6 +83,7 @@
     <div>
   </center>
 
+  <input type="submit" value="Save" class="btn btn-default" onclick="displayInfo()"><br/><br/>
   <div id="editor"></div>
 
   <script src="//code.jquery.com/jquery.js"></script>
@@ -101,8 +102,22 @@
         editor.insert(data);
     });
 
-    editor.gotoLine(0);
+    $(document).ready(function() {
+      move();
+    });
+
+    function move() {
+      var editor = ace.edit("editor");
+
+      editor.gotoLine(0);
+    }
+
+
+    function displayInfo() {
+      var editor = ace.edit("editor");
+          data = editor.getSession().getValue();
+
+      alert(data);
+    }
   </script>
 </div>
-
-
