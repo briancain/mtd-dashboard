@@ -9,7 +9,7 @@
       text-align: center;
     }
 
-    li {
+    #customli {
         max-width: 50%;
     }
 
@@ -74,7 +74,7 @@
       </form>
 
       <center>
-        <ul class="list-group">
+        <ul class="list-group" id="customli">
           <li class="list-group-item" ng-repeat="entry in entries">
             {{entry.name}}
           </li>
@@ -83,8 +83,25 @@
     <div>
   </center>
 
-  <input type="submit" value="Save" class="btn btn-default" onclick="displayInfo()"><br/><br/>
-  <div id="editor"></div>
+  <div class="row">
+    <div class="col-md-6">
+      <input type="submit" value="Save" class="btn btn-default" onclick="displayInfo()"><br/><br/>
+      <div id="editor"></div>
+    </div>
+    <div class="col-md-6">
+      <div class="btn-group">
+        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+          Action <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="#">role</a></li>
+          <li><a href="#">webapp</a></li>
+          <li><a href="#">database</a></li>
+          <li><a href="#">msgbroker</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
   <script src="//code.jquery.com/jquery.js"></script>
   <script src="/js/ace.js"></script>
