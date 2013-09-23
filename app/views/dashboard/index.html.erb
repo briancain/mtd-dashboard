@@ -64,6 +64,7 @@
 
 <div class="container">
   <h1 align="center">AngularJS Element Demo</h1>
+  <center><button type="submit" class="btn btn-warning" onclick="aboutAngular()">About</button><br/><br/></center></center>
   <center>
     <div ng-controller="DashboardCtrl">
       <form class="form-inline" role="form" ng-submit="addEntry()">
@@ -83,7 +84,8 @@
     <div>
   </center>
 
-  <center><h1>Editor Config Demo</h1></center>
+  <center><h1>Editor Config Demo</h1>
+    <button type="submit" class="btn btn-warning" onclick="aboutEditor()">About</button><br/><br/></center>
   <div class="row">
     <div class="col-md-6">
       <div id="editor"></div>
@@ -91,13 +93,13 @@
     <div class="col-md-6">
       <div class="btn-group">
         <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-          Action <span class="caret"></span>
+          Load Preset <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" role="menu">
           <li><a href="#">role</a></li>
           <li><a href="#">webapp</a></li>
           <li><a href="#">database</a></li>
-          <li><a href="#">msgbroker</a></li>
+          <li><a href="#">cluster</a></li>
         </ul>
       </div>
     </div>
@@ -141,6 +143,18 @@
           data = editor.getSession().getValue();
 
       alert(data);
+    }
+
+    function aboutEditor(){
+      var msg = "This editor shows how a user can edit our DSL to generate a configuration";
+
+      alert(msg);
+    }
+
+    function aboutAngular(){
+      var msg = "This demo shows off AngularJS. It has a controller where it stores the 3 default values you see, and uses the view to retrieve and display them.";
+
+      alert(msg)
     }
   </script>
 </div>
