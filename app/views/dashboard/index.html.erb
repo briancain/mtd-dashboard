@@ -92,19 +92,13 @@
     </div>
     <div class="col-md-6">
       <div class="btn-group">
-        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+        <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown">
           Load Preset <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" role="menu">
-          <li><a href="#" onclick="insertData('goal')"><b>goal</b></a></li>
-          <li class="divider"></li>
-          <li><a href="#" onclick="insertData('ecommerce')">- exampleGoal</a></li>
-          <li><a href="#" onclick="insertData('role')"><b>role</b></a></li>
-          <li class="divider"></li>
-          <li><a href="#" onclick="insertData('exampleRole')">- exampleRole</a></li>
-          <li><a href="#" onclick="insertData('cluster')"><b>cluster</b></a></li>
-          <li class="divider"></li>
-          <li><a href="#" onclick="insertData('exampleCluster')">- exampleCluster</a></li>
+          <li><a href="#" onclick="insertNewKeyData('goals')">goal</a></li>
+          <li><a href="#" onclick="insertNewKeyData('roles')">role</a></li>
+          <li><a href="#" onclick="insertNewKeyData('clusters')">cluster</a></li>
         </ul>
       </div>
     </div>
@@ -113,10 +107,11 @@
   <div class="row">
     <div class="col-md-6">
       <div class="btn-group">
-        <button type="submit" class="btn btn-default" >Open</button>
+        <button type="submit" class="btn btn-default" disabled="disabled">Open</button>
         <button type="submit" class="btn btn-default" onclick="displayInfo()">Save</button>
         <button type="submit" class="btn btn-default" onclick="doUndo()">Undo</button>
-        <button type="submit" class="btn btn-default" onclick="doRedo()">Redo</button><br/><br/>
+        <button type="submit" class="btn btn-default" onclick="doRedo()">Redo</button>
+        <button type="submit" class="btn btn-warning" disabled="disabled">Execute</button><br/><br/>
       </div>
     </div>
   </div>
@@ -124,6 +119,7 @@
   <script src="//code.jquery.com/jquery.js"></script>
   <script src="/js/ace.js"></script>
   <script src="/js/mode-yaml.js"></script>
+  <script src="/js/ext-searchbox.js"></script>
   <script>
     var editor = ace.edit("editor"),
         YAMLMode = require("ace/mode/yaml").Mode;
@@ -149,15 +145,15 @@
       editor.gotoLine(0);
     }
 
-    function insertData(data) {
+    function insertNewKeyData(data) {
       var msg = "";
-      if (data == 'goal') {
-        msg = "goals:\n\tecommerce:\n\t\tname: TemplateName\n\troles:\n\t\t\t- TemplateRole";
+      if (data == 'goals') {
+        msg = "goals:\n\texampleGoal:\n\t\tname: TemplateName\n\troles:\n\t\t\t- TemplateRole";
       }
-      else if (data == 'role') {
+      else if (data == 'roles') {
         msg = "roles:\n\texampleRole:\n\t\tname: TemplateName\n\t\tmin: 1\n\t\texports:\n\t\t\thttp: { type: exampleType, protocol: exampleProtocol }\n\t\t\thttps: { type: exampleType, protocol: exampleProtocol }\n\t\timports:\n\t\t\t- exampleImport";
       }
-      else if (data == 'cluster') {
+      else if (data == 'clusters') {
         msg = "clusters:\n\texampleCluster:\n\t\tname: ExampleName\n\t\tstrategy: ExampleStrategy\n\t\troles:\n\t\t\t- exampleRole";
       }
 
@@ -174,6 +170,10 @@
       if (undoRedoManager.hasRedo()) {
         undoRedoManager.redo();
       }
+    }
+
+    function saveInfo(path) {
+
     }
 
     function displayInfo() {

@@ -1,4 +1,3 @@
-# MTD Init Config
 goals:
   ecommerce:
     name: eCommerce frontend
@@ -6,7 +5,8 @@ goals:
       - weblb
       - webapp
       - msgbroker
-      - database
+      - database_master
+      - database_slave
       - workerapp
 
 roles:
@@ -14,21 +14,23 @@ roles:
     name: Web application load balancer
     min: 2
     exports:
-      http:  { type: single_port, protocol: tcp }
+      http: { type: single_port, protocol: tcp }
       https: { type: single_port, protocol: tcp }
     imports:
-      - webapp: http
-      - webapp: https
+      webapp:
+        - http
+        - https
 
   webapp:
     name: Web application
     min: 3
     exports:
-      http:  { type: single_port, protocol: tcp }
+      http: { type: single_port, protocol: tcp }
       https: { type: single_port, protocol: tcp }
     imports:
-      - database: querying
-      - msgbroker: amqp
+      database_master: querying
+      database_slave: querying
+      msgbroker: amqp
 
   msgbroker:
     name: RabbitMQ message broker
@@ -36,9 +38,16 @@ roles:
     exports:
       amqp: { type: single_port, protocol: tcp }
 
-  database:
-    name: MySQL database
-    minumum: 3
+  database_master:
+    name: MySQL master database
+    exports:
+      querying: { type: single_port, protocol: tcp }
+
+  database_slave:
+    name: MySQL slave database
+    min: 2
+    imports:
+      database_master: querying
     exports:
       querying: { type: single_port, protocol: tcp }
 
@@ -46,28 +55,30 @@ roles:
     name: Background worker application
     min: 2
     imports:
-      - database: querying
-      - msgbroker: amqp
+      database_master: querying
+      database_slave: querying
+      msgbroker: amqp
 
 clusters:
   # n-to-m cluster
   web:
     name: Web application cluster
-    strategy: nginx
+    strategy: varnish
     roles:
-      - weblb: lb
-      - webapp: target
+      weblb: lb
+      webapp: target
 
   # n homogeneous cluster -- self-contained
   msgbroker:
     name: RabbitMQ cluster
     strategy: rabbitmq
     roles:
-      - msgbroker
+      msgbroker: ~
 
   # 1-to-n master-slave cluster -- self-contained
   database:
     name: MySQL replication cluster
-    strategy: mysql
+    strategy: mysql_replication
     roles:
-      - database
+      database_master: master
+      database_slave: slave
