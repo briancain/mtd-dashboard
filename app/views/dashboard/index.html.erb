@@ -96,10 +96,9 @@
           Load Preset <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" role="menu">
-          <li><a href="#">role</a></li>
-          <li><a href="#">webapp</a></li>
-          <li><a href="#">database</a></li>
-          <li><a href="#">cluster</a></li>
+          <li><a href="#" onclick="insertData('goal')">goal</a></li>
+          <li><a href="#" onclick="insertData('role')">role</a></li>
+          <li><a href="#" onclick="insertData('cluster')">cluster</a></li>
         </ul>
       </div>
     </div>
@@ -137,6 +136,20 @@
       editor.gotoLine(0);
     }
 
+    function insertData(data) {
+      var msg = "";
+      if (data == 'goal') {
+        msg = "goals:\n\tecommerce:\n\t\tname: TemplateName\n\troles:\n\t\t\t- TemplateRole";
+      }
+      else if (data == 'role') {
+        msg = "roles:\n\texampleRole:\n\t\tname: TemplateName\n\t\tmin: 1\n\t\texports:\n\t\t\thttp: { type: exampleType, protocol: exampleProtocol }\n\t\t\thttps: { type: exampleType, protocol: exampleProtocol }\n\t\timports:\n\t\t\t- exampleImport";
+      }
+      else if (data == 'cluster') {
+        msg = "clusters:\n\texampleCluster:\n\t\tname: ExampleName\n\t\tstrategy: ExampleStrategy\n\t\troles:\n\t\t\t- exampleRole";
+      }
+
+      editor.insert(msg);
+    }
 
     function displayInfo() {
       var editor = ace.edit("editor");
@@ -145,13 +158,13 @@
       alert(data);
     }
 
-    function aboutEditor(){
+    function aboutEditor() {
       var msg = "This editor shows how a user can edit our DSL to generate a configuration";
 
       alert(msg);
     }
 
-    function aboutAngular(){
+    function aboutAngular() {
       var msg = "This demo shows off AngularJS. It has a controller where it stores the 3 default values you see, and uses the view to retrieve and display them.";
 
       alert(msg)
