@@ -133,7 +133,7 @@
     editor.getSession().setUseWrapMode(true);
     editor.getSession().setUseSoftTabs(true);
 
-    var undoManager = editor.getSession().getUndoManager();
+    var undoRedoManager = editor.getSession().getUndoManager();
 
     $.get('/tmp/fullstack.yaml', function(data) {
         editor.insert(data);
@@ -165,14 +165,14 @@
     }
 
     function doUndo() {
-      if (undoManager.hasUndo()) {
-        undoManager.undo();
+      if (undoRedoManager.hasUndo()) {
+        undoRedoManager.undo();
       }
     }
 
     function doRedo() {
-      if (undoManager.hasRedo()) {
-        undoManager.redo();
+      if (undoRedoManager.hasRedo()) {
+        undoRedoManager.redo();
       }
     }
 
