@@ -4,10 +4,10 @@ goals:
     roles:
       - weblb
       - webapp
-      - msgbroker
       - database_master
       - database_slave
       - workerapp
+      - kvstore
 
 roles:
   weblb:
@@ -30,13 +30,7 @@ roles:
     imports:
       database_master: querying
       database_slave: querying
-      msgbroker: amqp
-
-  msgbroker:
-    name: RabbitMQ message broker
-    min: 3
-    exports:
-      amqp: { type: single_port, protocol: tcp }
+      kvstore: redis
 
   database_master:
     name: MySQL master database
@@ -51,13 +45,19 @@ roles:
     exports:
       querying: { type: single_port, protocol: tcp }
 
-  workerapp:
-    name: Background worker application
-    min: 2
+  worker:
+    name: Sidekiq worker application
+    count: 3
     imports:
       database_master: querying
       database_slave: querying
-      msgbroker: amqp
+      kvstore: redis
+
+  kvstore:
+    name: Redis server
+    count: 1
+    exports:
+      redis: { type: single_port, protocol: tcp }
 
 clusters:
   # n-to-m cluster
@@ -68,12 +68,12 @@ clusters:
       weblb: lb
       webapp: target
 
-  # n homogeneous cluster -- self-contained
-  msgbroker:
-    name: RabbitMQ cluster
-    strategy: rabbitmq
+  # n independent cluster -- shared-nothing
+  worker:
+    name: Sidekiq worker cluster
+    strategy: generic
     roles:
-      msgbroker: ~
+      workerapp: ~
 
   # 1-to-n master-slave cluster -- self-contained
   database:
