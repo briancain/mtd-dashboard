@@ -35,14 +35,21 @@ Other frameworks used in this project
 
 - [ACE](http://ace.c9.io/)
 - [AngularJS](http://www.angularjs.org/)
-- [AngularUI](http://angular-ui.github.io/)
 - [Capybara](https://github.com/jnicklas/capybara)
 - [Devise](https://github.com/plataformatec/devise)
 - [Jbuilder](https://github.com/rails/jbuilder)
 - [LESS Rails](https://rubygems.org/gems/less-rails)
 - [Mongoid](http://mongoid.org/en/mongoid/index.html)
-- [Twitter Bootstrap](http://getbootstrap.com/)
+- [Twitter Bootstrap 3.0](http://getbootstrap.com/)
 
 ## More information
 
-TBD
+### Dashboard Views
+
+#### Home View
+
+After authenticating, the user should be presented with an overview of the system. This will hopefully consist of different graphs that give the user an idea of the 'health' of the system.
+
+#### Manage View
+
+This view will be where a user can manage their MTD system. Currently, it is being used to show off different demo element features that could be integrated into the final product.
