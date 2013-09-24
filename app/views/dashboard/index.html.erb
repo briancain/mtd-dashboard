@@ -18,6 +18,11 @@
         width: 500px;
         height: 400px;
     }
+
+    .modal-backdrop.fade.in {
+      opacity: 0.5;
+      filter: alpha(opacity=50);
+    }
   </style>
 </head>
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -64,7 +69,24 @@
 
 <div class="container">
   <h1 align="center">AngularJS Element Demo</h1>
-  <center><button type="submit" class="btn btn-info" onclick="aboutAngular()">About</button><br/><br/></center></center>
+  <center><a data-toggle="modal" href="#myModal" class="btn btn-info">About</a><br/><br/></center>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">AngularJS Demo Element</h4>
+        </div>
+        <div class="modal-body">
+          This demo shows off AngularJS. It has a controller where it stores the 3 default values you see, and uses the view to retrieve and display them.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
   <center>
     <div ng-controller="DashboardCtrl">
       <form class="form-inline" role="form" ng-submit="addEntry()">
@@ -85,7 +107,25 @@
   </center>
 
   <center><h1>Editor Config Demo</h1>
-    <button type="submit" class="btn btn-info" onclick="aboutEditor()">About</button><br/><br/></center>
+  <a data-toggle="modal" href="#myModalEdit" class="btn btn-info">About</a><br/><br/></center>
+  <!-- Modal -->
+  <div class="modal fade" id="myModalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabelEdit" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Editor Config Demo</h4>
+        </div>
+        <div class="modal-body">
+          This editor shows how a user can edit our DSL to generate a configuration
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
   <div class="row">
     <div class="col-md-6">
       <div id="editor"></div>
