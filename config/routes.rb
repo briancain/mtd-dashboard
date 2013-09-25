@@ -7,6 +7,7 @@ MtdDashboard::Application.routes.draw do
 
   get "dashboard/home"
   get "dashboard/index"
+  get "dashboard/config"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

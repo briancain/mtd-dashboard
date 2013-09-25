@@ -1,5 +1,5 @@
 var w = 960,
-    h = 800,
+    h = 1800,
     i = 0,
     barHeight = 20,
     barWidth = w * .8,

@@ -39,7 +39,13 @@
       <ul class="nav navbar-nav">
         <li><a href="/">Home</a></li>
         <% if user_signed_in? %>
-          <li class="active"><a href="/dashboard/index">Manage</a></li>
+          <li class="dropdown active">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Manage<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Manage</a></li>
+              <li><a href="/dashboard/config">Config</a></li>
+            </ul>
+          </li>
         <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
