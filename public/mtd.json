@@ -1,0 +1,142 @@
+{
+ "name": "moving target defense",
+ "children": [
+  {
+   "name": "goals",
+   "children": [
+    {
+     "name": "ecommerce",
+     "children": [
+      {"name": "Ecommerce Frontend", "size": 3938}
+     ]
+    },
+    {
+     "name": "roles",
+     "children": [
+      {"name": "weblb", "size": 3534},
+      {"name": "webapp", "size": 5731},
+      {"name": "database_master", "size": 7840},
+      {"name": "database_slave", "size": 5914},
+      {"name": "workerapp", "size": 3416},
+      {"name": "kvstore", "size": 3416}
+     ]
+    }
+   ]
+  },
+  {
+   "name": "roles",
+   "children": [
+    {
+     "name": "weblb",
+     "children": [
+      {"name": "Web application load balancer", "size": 1983},
+      {"name": "min", 
+        "children": [
+          {"name":"2", "size": 300}
+        ]
+      },
+      {"name": "exports", "children": [
+        {"name": "http", "children": [
+          {"name": "type", "children":[
+            {"name": "single_port", "size": 300}
+            ]
+          },
+          {"name": "protocol", "children": [{"name": "tcp", "size": 300}]}
+          ]
+        },
+        {"name": "https", "children": [
+          {"name": "type", "children": [
+            {"name": "single_port", "size":300}
+            ]
+          },
+          {"name": "protocol", "children": [
+            {"name": "tcp", "size": 300}
+            ]
+          }
+          ]
+        }
+        ]
+      },
+      {"name": "imports", "children": [
+        {"name": "webapp", "children": [
+          {"name": "http", "size":300},
+          {"name": "https", "size":300}
+          ]
+        }
+        ]
+      }
+     ]
+    },
+    {
+      "name": "webapp",
+       "children": [
+        {"name": "Web application", "size": 1983},
+        {"name": "min", 
+          "children": [
+            {"name":"3", "size": 300}
+          ]
+        },
+        {"name": "exports", "children": [
+          {"name": "http", "children": [
+            {"name": "type", "children":[
+              {"name": "single_port", "size": 300}
+              ]
+            },
+            {"name": "protocol", "children": [{"name": "tcp", "size": 300}]}
+            ]
+          },
+          {"name": "https", "children": [
+            {"name": "type", "children": [
+              {"name": "single_port", "size":300}
+              ]
+            },
+            {"name": "protocol", "children": [
+              {"name": "tcp", "size": 300}
+              ]
+            }
+            ]
+          }
+          ]
+        },
+        {"name": "imports", "children": [
+          {"name": "database_master", "children": [
+            {"name": "querying", "size":300}
+            ]
+          },
+          {"name": "database_slave", "children": [
+            {"name": "querying", "size":300}
+            ]
+          },
+          {"name": "kvstore", "children": [
+            {"name": "redis", "size":300}
+            ]
+          }
+          ]
+        }
+       ]
+    }
+   ]
+  },
+  {
+   "name": "clusters",
+   "children": [
+    {
+     "name": "converters",
+     "children": [
+      {"name": "Converters", "size": 721},
+      {"name": "DelimitedTextConverter", "size": 4294},
+      {"name": "GraphMLConverter", "size": 9800},
+      {"name": "IDataConverter", "size": 1314},
+      {"name": "JSONConverter", "size": 2220}
+     ]
+    },
+    {"name": "DataField", "size": 1759},
+    {"name": "DataSchema", "size": 2165},
+    {"name": "DataSet", "size": 586},
+    {"name": "DataSource", "size": 3331},
+    {"name": "DataTable", "size": 772},
+    {"name": "DataUtil", "size": 3322}
+   ]
+  }
+ ]
+}
