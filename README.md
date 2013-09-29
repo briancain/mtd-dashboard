@@ -36,6 +36,7 @@ Other frameworks used in this project
 - [ACE](http://ace.c9.io/)
 - [AngularJS](http://www.angularjs.org/)
 - [Capybara](https://github.com/jnicklas/capybara)
+- [D3JS](http://d3js.org/)
 - [Devise](https://github.com/plataformatec/devise)
 - [Jbuilder](https://github.com/rails/jbuilder)
 - [LESS Rails](https://rubygems.org/gems/less-rails)
@@ -53,3 +54,5 @@ After authenticating, the user should be presented with an overview of the syste
 #### Manage View
 
 This view will be where a user can manage their MTD system. Currently, it is being used to show off different demo element features that could be integrated into the final product.
+
+Another view will show the configuration visualization demo that will depend on what the fullstack.yaml will look like.
