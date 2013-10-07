@@ -24,6 +24,23 @@
       opacity: 0.5;
       filter: alpha(opacity=50);
     }
+
+    // .link {
+    //   fill: none;
+    //   stroke: #666;
+    //   stroke-width: 1.5px;
+    // }
+
+    // .node circle {
+    //   fill: #ccc;
+    //   stroke: #fff;
+    //   stroke-width: 1.5px;
+    // }
+
+    // text {
+    //   font: 10px sans-serif;
+    //   pointer-events: none;
+    // }
   </style>
 </head>
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -197,12 +214,15 @@
     </div>
   </div>
 
+  <!-- <div id="forcedDir"></div> -->
+
   <script src="//code.jquery.com/jquery.js"></script>
   <script src="/js/ace.js"></script>
   <script src="/js/mode-yaml.js"></script>
   <script src="/js/ext-searchbox.js"></script>
   <script src="http://d3js.org/d3.v3.min.js"></script>
   <script src="/js/node-config.js"></script>
+  <!-- <script src="/js/forced-graph-config.js"></script> -->
   <script>
     var editor = ace.edit("editor"),
         YAMLMode = require("ace/mode/yaml").Mode;
