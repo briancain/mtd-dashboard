@@ -23,7 +23,7 @@ var yAxis = d3.svg.axis()
 var line = d3.svg.line()
     .interpolate("basis")
     .x(function(d) { return x(d.date); })
-    .y(function(d) { return y(d.temperature); });
+    .y(function(d) { return y(d.cpu_load); });
 
 var svg = d3.select("#graphs").append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -43,7 +43,7 @@ d3.csv("/data.csv", function(data) {
     return {
       name: name,
       values: data.map(function(d) {
-        return {date: d.date, temperature: +d[name]};
+        return {date: d.date, cpu_load: +d[name]};
       })
     };
   });
@@ -51,8 +51,8 @@ d3.csv("/data.csv", function(data) {
   x.domain(d3.extent(data, function(d) { return d.date; }));
 
   y.domain([
-    d3.min(services, function(c) { return d3.min(c.values, function(v) { return v.temperature; }); }),
-    d3.max(services, function(c) { return d3.max(c.values, function(v) { return v.temperature; }); })
+    d3.min(services, function(c) { return d3.min(c.values, function(v) { return v.cpu_load; }); }),
+    d3.max(services, function(c) { return d3.max(c.values, function(v) { return v.cpu_load; }); })
   ]);
 
   svg.append("g")
@@ -68,7 +68,7 @@ d3.csv("/data.csv", function(data) {
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Temperature (ºF)");
+      .text("CPU Load");
 
   var service = svg.selectAll(".service")
       .data(services)
@@ -83,7 +83,7 @@ d3.csv("/data.csv", function(data) {
 
   service.append("text")
       .datum(function(d) { return {name: d.name, value: d.values[d.values.length - 1]}; })
-      .attr("transform", function(d) { return "translate(" + x(d.value.date) + "," + y(d.value.temperature) + ")"; })
+      .attr("transform", function(d) { return "translate(" + x(d.value.date) + "," + y(d.value.cpu_load) + ")"; })
       .attr("x", 3)
       .attr("dy", ".35em")
       .text(function(d) { return d.name; });
