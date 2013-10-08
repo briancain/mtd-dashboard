@@ -76,7 +76,7 @@ d3.csv("/data.csv", function(data) {
       .attr("class", "service");
 
   service.append("path")
-      .attr("class", "line")
+      .attr("class", "customChartLine")
       .attr("d", function(d) { return line(d.values); })
       .attr("data-legend",function(d) { return d.name})
       .style("stroke", function(d) { return color(d.name); });
