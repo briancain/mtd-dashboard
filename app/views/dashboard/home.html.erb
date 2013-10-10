@@ -2,6 +2,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <link rel="stylesheet" type="text/css" href="/css/clippy.css" media="all">
   <style type="text/css">
     body {
       padding-top: 50px;
@@ -156,6 +157,8 @@
     </div>
   <% end %>
 
+  <button id="easterEgg" style="background-color: Transparent;" type="button" class="btn btn-default" onclick="loadClippy()"></button>
+
 </div><!-- /.container -->
 
 <script src="/js/legend.js"></script>
@@ -163,3 +166,23 @@
 <script src="/js/rt-bar-chart.js"></script>
 <script src="/js/rt-bar-chart2.js"></script>
 <script src="/js/rt-bar-chart3.js"></script>
+<script src="/js/clippy.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+      document.getElementById("easterEgg").disabled = false;
+    });
+
+    function loadClippy(){
+      clippy.load('Clippy', function(agent) {
+          // Do anything with the loaded agent
+          agent.show();
+
+          agent.speak("It looks like you're trying to defend your moving target, would you like some help?");
+
+          agent.animate();
+
+          document.getElementById("easterEgg").disabled = true;
+      });
+    }
+</script>
