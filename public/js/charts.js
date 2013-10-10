@@ -95,7 +95,7 @@ d3.csv("/data.csv", function(data) {
     .style("font-size","12px")
     .call(d3.legend)
 
-  setTimeout(function() { 
+  setTimeout(function() {
     legend
       .style("font-size","20px")
       .attr("data-style-padding",10)
