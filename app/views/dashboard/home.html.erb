@@ -3,6 +3,7 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
   <link rel="stylesheet" type="text/css" href="/css/clippy.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/rt-chart.css">
   <style type="text/css">
     body {
       padding-top: 50px;
@@ -34,29 +35,6 @@
       fill:white;
       stroke:black;
       opacity:0.8;
-    }
-
-    .customChart {
-      margin-left: 2px;
-    }
-
-    .customLine rect {
-
-    }
-
-    .customChart rect {
-      fill: steelblue;
-      stroke: white;
-    }
-
-    .customChart2 rect {
-      fill: orange;
-      stroke: white;
-    }
-
-    .customChart3 rect {
-      fill: green;
-      stroke: white;
     }
   </style>
 </head>
@@ -110,19 +88,7 @@
 </div>
 
 <div class="container-fluid">
-
-  <!-- <div class="starter-template">
-    <% if user_signed_in? %>
-      <h1>Welcome, <%= current_user.name %>.</h1>
-        <p class="lead">Please check out one of the demos below.</p>
-    <% else %>
-      <h1>Welcome</h1>
-      <p class="lead">Please Sign in.</p>
-    <% end %>
-  </div> -->
-
   <% if user_signed_in? %>
-
     <div class="row-fuild">
       <div class="col-md-8">
         <h2>Service Monitoring Charts</h2>

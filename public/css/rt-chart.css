@@ -1,0 +1,22 @@
+.customChart {
+  margin-left: 2px;
+}
+
+.customLine rect {
+
+}
+
+.customChart rect {
+  fill: steelblue;
+  stroke: white;
+}
+
+.customChart2 rect {
+  fill: orange;
+  stroke: white;
+}
+
+.customChart3 rect {
+  fill: green;
+  stroke: white;
+}
