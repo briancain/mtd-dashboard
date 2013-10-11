@@ -4,6 +4,7 @@
   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
   <link rel="stylesheet" type="text/css" href="/css/clippy.css" media="all">
   <link rel="stylesheet" type="text/css" href="/css/rt-chart.css">
+  <link rel="stylesheet" type="text/css" href="/css/cube-style.css">
   <style type="text/css">
     body {
       padding-top: 50px;
@@ -93,6 +94,7 @@
       <div class="col-md-8">
         <h2>Service Monitoring Charts</h2>
         <div id="graphs"></div>
+        <div id="cubeChart"></div><br/>
       </div>
       <div class="col-md-4">
         <h2>User Table</h2>
@@ -123,7 +125,9 @@
     </div>
   <% end %>
 
-  <button id="easterEgg" style="background-color: Transparent;" type="button" class="btn btn-default" onclick="loadClippy()"></button>
+  <div class="row-fluid">
+    <br/><br/><button id="easterEgg" style="background-color: Transparent;" type="button" class="btn btn-default" onclick="loadClippy()"></button>
+  </div>
 
 </div><!-- /.container -->
 
@@ -134,3 +138,5 @@
 <script src="/js/rt-bar-chart3.js"></script>
 <script src="/js/clippy.min.js"></script>
 <script src="/js/clippy-start.js"></script>
+<script src="/js/cubism.v1.min.js"></script>
+<script src="/js/cube-chart.js"></script>
