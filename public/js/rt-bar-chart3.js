@@ -1,6 +1,9 @@
 /*
  *  Real Time Bar Chart
  *
+ *  Might want to place this in 1 js file and seperate
+ *  them by function names
+ *
  *  Brian Cain
  */
 
