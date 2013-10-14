@@ -10,9 +10,9 @@ var context = cubism.context()
     .step(1e3)
     .size(960);
 
-var foo = random("foo"),
-    bar = random("bar");
-    foobar = random("foobar");
+var sidekiq = random("Sidekiq"),
+    mysql = random("MySQL");
+    redis = random("Redis");
 
 function random(name) {
   var value = 0,
@@ -38,7 +38,7 @@ d3.select("#cubeChart").call(function(div) {
       .call(context.axis().orient("top"));
 
   div.selectAll(".horizon")
-      .data([foo, bar, foobar, foo.add(bar), foo.subtract(bar)])
+      .data([sidekiq, mysql, redis])
     .enter().append("div")
       .attr("class", "horizon")
       .call(context.horizon().extent([-20, 20]));
