@@ -1,8 +1,9 @@
 @DashboardCtrl = ($scope) ->
   $scope.entries = [
-    {name: "Things"}
-    {name: "Hack the Planet"}
-    {name: "Defend Your Moving Target"}
+    {name: "weblb"}
+    {name: "webapp"}
+    {name: "database_master"}
+    {name: "database_salve"}
   ]
 
   $scope.addEntry = ->
