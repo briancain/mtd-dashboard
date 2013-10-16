@@ -59,27 +59,3 @@ roles:
     count: 1
     exports:
       redis: { type: single_port, protocol: tcp }
-
-clusters:
-  # n-to-m cluster
-  web:
-    name: Web application cluster
-    strategy: varnish
-    roles:
-      weblb: lb
-      webapp: target
-
-  # n independent cluster -- shared-nothing
-  worker:
-    name: Sidekiq worker cluster
-    strategy: generic
-    roles:
-      workerapp: ~
-
-  # 1-to-n master-slave cluster -- self-contained
-  database:
-    name: MySQL replication cluster
-    strategy: mysql_replication
-    roles:
-      database_master: master
-      database_slave: slave

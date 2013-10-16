@@ -6,6 +6,7 @@ MtdDashboard::Application.routes.draw do
   root :to => 'dashboard#home'
 
   get "dashboard/home"
+  get "dashboard/network"
   get "dashboard/index"
   get "dashboard/config"
   get "dashboard/visualconfig"

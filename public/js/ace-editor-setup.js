@@ -30,9 +30,6 @@ function insertNewKeyData(data) {
   else if (data == 'roles') {
     msg = "roles:\n\texampleRole:\n\t\tname: TemplateName\n\t\tmin: 1\n\t\texports:\n\t\t\thttp: { type: exampleType, protocol: exampleProtocol }\n\t\t\thttps: { type: exampleType, protocol: exampleProtocol }\n\t\timports:\n\t\t\t- exampleImport";
   }
-  else if (data == 'clusters') {
-    msg = "clusters:\n\texampleCluster:\n\t\tname: ExampleName\n\t\tstrategy: ExampleStrategy\n\t\troles:\n\t\t\t- exampleRole";
-  }
 
   editor.insert(msg);
 }
