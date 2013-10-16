@@ -6,17 +6,17 @@
 
 }
 
-.customChart rect {
+.customChartBlue rect {
   fill: steelblue;
   stroke: white;
 }
 
-.customChart2 rect {
+.customChartOrange rect {
   fill: orange;
   stroke: white;
 }
 
-.customChart3 rect {
+.customChartGreen rect {
   fill: green;
   stroke: white;
 }

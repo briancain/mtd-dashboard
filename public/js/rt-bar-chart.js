@@ -1,10 +1,18 @@
 /*
  *  Real Time Bar Chart
  *
+ *  cubeChart function
+ *
+ *  Parameters: divElem, barColorStyle
+ *
+ *  divElem should be the element in string form that the bar chart is being applied to
+ *
+ *  barColorStyle should be the css element in `rt-chart.css` in string form
+ *
  *  Brian Cain
  */
 
-(function() {
+function cubeChart(divElem, barColorStyle) {
   var t = 1297110663, // start time (seconds since epoch)
       v = 70, // start value (subscribers)
       fakeData = d3.range(33).map(chartNext); // starting dataset
@@ -20,8 +28,8 @@
       .domain([0, 100])
       .rangeRound([0, h]);
 
-  var chart = d3.select("#barChart").append("svg")
-      .attr("class", "customChart")
+  var chart = d3.select(divElem).append("svg")
+      .attr("class", barColorStyle)
       .attr("width", w * fakeData.length - 1)
       .attr("height", h);
 
@@ -31,13 +39,6 @@
       value: v = ~~Math.max(10, Math.min(90, v + 10 * (Math.random() - .5)))
     };
   }
-
-  //chart.append("customChartLine")
-  //    .attr("x1", 0)
-  //    .attr("x2", w * fakeData.length)
-  //    .attr("y1", h - .5)
-  //    .attr("y2", h - .5)
-  //    .style("stroke", "#000");
 
   redraw();
 
@@ -71,4 +72,4 @@
     redraw();
     d3.timer.flush(); // avoid memory leak when in background tab
   }, 1500);
-})();
+}
