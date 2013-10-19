@@ -1,5 +1,7 @@
 module DashboardHelper
 
+  # Reads in the full stack yaml
+  # and parses it
   def get_fullstack_config
     config = YAML.load_file('public/tmp/fullstack.yaml')
     nodes = []

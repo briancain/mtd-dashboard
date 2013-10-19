@@ -17,6 +17,7 @@ class DashboardController < ApplicationController
 
   # GET /dashboard/network
   def network
+    # get config hash
     @nodes = get_fullstack_config
 
     puts "###"
