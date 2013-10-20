@@ -75,6 +75,22 @@
   <div class="row">
     <div class="col-md-6">
       <h1>Network Table</h1>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Node</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @nodes.each do |node| %>
+            <tr>
+              <td><%= node %></td>
+              <td><span class="label label-success">Success</span></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
     <div class="col-md-6">
       <h1>Network Graph</h1>
