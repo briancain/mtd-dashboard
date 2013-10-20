@@ -3,7 +3,7 @@
     {name: "weblb"}
     {name: "webapp"}
     {name: "database_master"}
-    {name: "database_salve"}
+    {name: "database_slave"}
   ]
 
   $scope.addEntry = ->
