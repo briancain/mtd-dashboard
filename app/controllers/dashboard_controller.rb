@@ -8,6 +8,7 @@ class DashboardController < ApplicationController
   # GET /
   def home
     @users = User.all
+    @nodes = get_fullstack_config
   end
 
   # GET /dashboard/index
@@ -33,6 +34,9 @@ class DashboardController < ApplicationController
     @nodes.each do | node |
       puts "- #{node}"
     end
+
+    # Get nodes with import/exports
+    @node_map = get_import_export_map
   end
 
 end

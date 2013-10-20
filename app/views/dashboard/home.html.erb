@@ -102,24 +102,30 @@
         <div id="cubeChart"></div><br/>
       </div>
       <div class="col-md-4">
-        <h2>User Table</h2>
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @users.each do |user| %>
+        <h3>Network Table</h3>
+          <table class="table table-hover">
+            <thead>
               <tr>
-                <td><%= user.name %></td>
-                <td><%= user.email %></td>
+                <th>Node</th>
+                <th>Status</th>
               </tr>
-            <% end %>
-          </tbody>
-        </table>
-        <h1>Real Time Data Bar Chart</h1>
+            </thead>
+            <tbody>
+              <% @nodes.each do |node| %>
+                <tr>
+                  <td><%= node %></td>
+                  <% if node == 'Sidekiq worker application' %>
+                    <td><span class="label label-warning">Unknown</span></td>
+                  <% elsif node == 'Web application load balancer' %>
+                    <td><span class="label label-danger">Service Down</span></td>
+                  <% else %>
+                    <td><span class="label label-success">Running</span></td>
+                  <% end %>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        <h3>Real Time Data Bar Chart</h3>
         <h5>MySQL</h5>
         <div id="barChart"></div>
         <h5>Redis</h5>
