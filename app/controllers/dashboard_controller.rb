@@ -17,6 +17,14 @@ class DashboardController < ApplicationController
 
   # GET /dashboard/network
   def network
+    #
+    # TODO: 
+    #   Have a functoin that queries the backend project
+    #   for the status of each service. Place that in a hash where
+    #   the key is the service name and the value is what state it is
+    #   (i.e. 'Service Down', 'Running', 'Unknown', etc)
+    #   and have the view build the table (see: dashboard/network)
+    #
     # get config hash
     @nodes = get_fullstack_config
 

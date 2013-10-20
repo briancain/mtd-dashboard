@@ -86,7 +86,13 @@
           <% @nodes.each do |node| %>
             <tr>
               <td><%= node %></td>
-              <td><span class="label label-success">Success</span></td>
+              <% if node == 'Sidekiq worker application' %>
+                <td><span class="label label-warning">Unknown</span></td>
+              <% elsif node == 'Web application load balancer' %>
+                <td><span class="label label-danger">Service Down</span></td>
+              <% else %>
+                <td><span class="label label-success">Success</span></td>
+              <% end %>
             </tr>
           <% end %>
         </tbody>
