@@ -8,6 +8,8 @@
 
   <title><%= full_title(yield(:title)) %></title>
   <%= stylesheet_link_tag "application", :media => "all" %>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="//code.jquery.com/jquery.js"></script>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
@@ -31,7 +33,5 @@
   <% end %>
 <%= yield %>
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="//code.jquery.com/jquery.js"></script>
 </body>
 </html>
