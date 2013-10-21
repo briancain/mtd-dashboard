@@ -14,6 +14,7 @@ class DashboardController < ApplicationController
   # GET /dashboard/index
   def index
     @users = User.all
+    @nodes = get_fullstack_config
   end
 
   # GET /dashboard/network

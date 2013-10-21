@@ -9,10 +9,6 @@
       text-align: center;
     }
 
-    #customli {
-        max-width: 50%;
-    }
-
     #editor {
         // position: absolute;
         width: 500px;
@@ -23,23 +19,6 @@
       opacity: 0.5;
       filter: alpha(opacity=50);
     }
-
-    // .link {
-    //   fill: none;
-    //   stroke: #666;
-    //   stroke-width: 1.5px;
-    // }
-
-    // .node circle {
-    //   fill: #ccc;
-    //   stroke: #fff;
-    //   stroke-width: 1.5px;
-    // }
-
-    // text {
-    //   font: 10px sans-serif;
-    //   pointer-events: none;
-    // }
   </style>
 </head>
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -127,6 +106,29 @@
           <li><a href="#" onclick="insertNewKeyData('goals')">goal</a></li>
           <li><a href="#" onclick="insertNewKeyData('roles')">role</a></li>
         </ul>
+        <a data-toggle="modal" href="#loadFileModal" class="btn btn-info btn-lg">Load File</a><br/><br/>
+        <!-- Modal -->
+        <div class="modal fade" id="loadFileModal" tabindex="-1" role="dialog" aria-labelledby="loadFileModalEdit" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Load a configuration file</h4>
+              </div>
+              <div class="modal-body">
+                <div class="form-group">
+                  <label for="exampleInputFile">File input</label>
+                  <input type="file" id="exampleInputFile"></input>
+                  <p class="help-block">Program accepts .yaml file types.</p>
+                </div>
+                <button type="submit" class="btn btn-default">Load</button>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
       </div><br/><br/>
       <div id="editor"></div>
     </div>
@@ -134,17 +136,25 @@
       <h1>Config</h1>
         <ul class="nav nav-tabs" id="navTab" data-tabs="tabs">
           <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
-          <li><a href="#profile" data-toggle="tab">Profile</a></li>
+          <li><a href="#nodes" data-toggle="tab">Nodes</a></li>
           <li><a href="#messages" data-toggle="tab">Messages</a></li>
           <li><a href="#settings" data-toggle="tab">Settings</a></li>
         </ul>
 
         <div id="navTabContent" class="tab-content">
           <div id="home" class="tab-pane fade active in">
-            <p>Hello there</p>
+            <h4>Config Inputs</h4><br/>
+            <input class="form-control" id="focusedInput" type="text" value="Enter some stuff">
           </div>
-          <div id="profile" class="tab-pane">
-            <p>Hello there Profile</p>
+          <div id="nodes" class="tab-pane">
+            <h4>Select role to configure</h4>
+            <select class="form-control">
+              <% unless @nodes.nil? -%>
+                <%= @nodes.each do | node | %>
+                  <option><%= node %></option>
+                <% end %>
+              <% end %>
+            </select>
           </div>
           <div id="messages" class="tab-pane">
             <p>Hello there Messages</p>
