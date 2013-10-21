@@ -10,6 +10,7 @@ MtdDashboard::Application.routes.draw do
   get "dashboard/index"
   get "dashboard/network"
   get "dashboard/visualconfig"
+  post "dashboard/file_upload"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

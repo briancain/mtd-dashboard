@@ -118,11 +118,16 @@
               <div class="modal-body">
                 <div class="form-group">
                   <label for="exampleInputFile">File input</label>
-                  <input type="file" id="exampleInputFile"></input>
-                  <p class="help-block">Program accepts .yaml file types.</p>
+                  <!-- <input type="file" id="exampleInputFile"></input> -->
+                  <%= form_tag({action: :file_upload}, :method => 'post', :multipart => true) do %>
+                    <%= file_field_tag "configfile" %>
+                    <p class="help-block">Program accepts .yaml file types.</p>
+                    <%= submit_tag 'Load', :class => "btn btn-default" %>
+                  <% end %>
                 </div>
-                <button type="submit" class="btn btn-default">Load</button>
+                <!-- <button type="submit" class="btn btn-default">Load</button> -->
               </div>
+
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               </div>
@@ -144,7 +149,7 @@
         <div id="navTabContent" class="tab-content">
           <div id="home" class="tab-pane fade active in">
             <h4>Config Inputs</h4><br/>
-            <input class="form-control" id="focusedInput" type="text" value="Enter some stuff">
+            <input class="form-control" id="focusedInput" type="text" placeholder="Enter some stuff">
           </div>
           <div id="nodes" class="tab-pane">
             <h4>Select role to configure</h4>
@@ -169,7 +174,6 @@
   <div class="row">
     <div class="col-md-6">
       <div class="btn-group">
-        <button type="submit" class="btn btn-default" disabled="disabled">Open</button>
         <button type="submit" class="btn btn-default" onclick="displayInfo()">Save</button>
         <button type="submit" class="btn btn-default" onclick="doUndo()">Undo</button>
         <button type="submit" class="btn btn-default" onclick="doRedo()">Redo</button>

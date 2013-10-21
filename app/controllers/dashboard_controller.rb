@@ -1,4 +1,5 @@
 require 'yaml'
+require 'fileutils'
 
 class DashboardController < ApplicationController
   before_filter :authenticate_user!
@@ -15,6 +16,7 @@ class DashboardController < ApplicationController
   def index
     @users = User.all
     @nodes = get_fullstack_config
+    @files = ""
   end
 
   # GET /dashboard/network
@@ -38,6 +40,16 @@ class DashboardController < ApplicationController
 
     # Get nodes with import/exports
     @node_map = get_import_export_map
+  end
+
+  # Upload a given network config
+  def file_upload
+    tmp = params[:configfile]
+    file = File.join("public", "uploads", params[:configfile].original_filename)
+    FileUtils.cp tmp.path, file
+    puts "File uploaded to: public/uploads"
+    # Put up file load success alert?
+    redirect_to("/dashboard/index")
   end
 
 end
