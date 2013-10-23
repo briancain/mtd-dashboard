@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.14'
 gem 'mongoid', '~> 3.0.1'
 gem 'devise', "3.0.3"
+gem 'facter'
 
 # JBuilder for formatting data in json
 gem 'jbuilder'
