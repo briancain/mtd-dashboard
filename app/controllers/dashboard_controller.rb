@@ -16,7 +16,6 @@ class DashboardController < ApplicationController
   def index
     @users = User.all
     @nodes = get_fullstack_config
-    @files = ""
   end
 
   # POST /dashboard/index
@@ -41,11 +40,11 @@ class DashboardController < ApplicationController
     # get config hash
     @nodes = get_fullstack_config
 
-    puts "###"
-    puts "Nodes in controller"
-    @nodes.each do | node |
-      puts "- #{node}"
-    end
+    # puts "###"
+    # puts "Nodes in controller"
+    # @nodes.each do | node |
+    #   puts "- #{node}"
+    # end
 
     # Get nodes with import/exports
     @node_map = get_import_export_map
