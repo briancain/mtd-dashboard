@@ -58,7 +58,7 @@ class DashboardController < ApplicationController
     FileUtils.cp tmp.path, file
     puts "File uploaded to: public/uploads"
     # Put up file load success alert?
-    redirect_to("/dashboard/index")
+    redirect_to("/dashboard/index", :notice => "File #{params[:configfile].original_filename} uploaded")
   end
 
 end
