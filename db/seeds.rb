@@ -9,3 +9,7 @@
 puts 'SETTING UP DEFAULT USER LOGIN'
 user = User.create! :name => 'brian', :email => 'bccain@ksu.edu', :password => 'password', :password_confirmation => 'password'
 puts 'New user created: ' << user.name
+user = User.create! :name => 'admin', :email => 'admin@ksu.edu', :password => 'roottoor', :password_confirmation => 'roottoor'
+puts 'New user created: ' << user.name
+user = User.create! :name => 'ksucis', :email => 'ksucis@ksu.edu', :password => 'ihavenopassword', :password_confirmation => 'ihavenopassword'
+puts 'New user created: ' << user.name

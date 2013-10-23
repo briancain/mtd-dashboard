@@ -43,7 +43,7 @@
             </ul>
           </li>
           <% if user_signed_in? %>
-            <% if highlight?('network') %>
+            <% if highlight?('manage') %>
               <li class="dropdown active">
             <% else %>
               <li class="dropdown">
@@ -55,6 +55,20 @@
                   <li><a href="/dashboard/visualconfig">Visual Config</a></li>
                 </ul>
               </li>
+            <% if admin? current_user.name %>
+              <% if highlight?('admin') %>
+                <li class="dropdown active">
+              <% else %>
+                <li class="dropdown">
+              <% end %>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/admin/users">Users</a></li>
+                  <li><a href="/admin/settings">Settings</a></li>
+                  <li><a href="#">???</a></li>
+                </ul>
+              </li>
+            <% end %>
           <% end %>
         </ul>
         <ul class="nav navbar-nav navbar-right">
