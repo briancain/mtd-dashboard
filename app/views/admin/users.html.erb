@@ -14,12 +14,14 @@
 
 <div class="container">
   <% if user_signed_in? %>
-    <h1>User table</h1>
-    <table class="table table-hover">
+    <h1>Users</h1>
+    <table class="table table-hover table-bordered">
       <thead>
         <tr>
+          <th><div class="checkbox"><input type="checkbox"></div></th>
           <th>User</th>
           <th>Email</th>
+          <th>Enabled</th>
           <th>???</th>
           <th>Manage User</th>
         </tr>
@@ -27,10 +29,12 @@
       <tbody>
         <% @users.each do | user | %>
           <tr>
+            <td><div class="checkbox"><input type="checkbox"></div></td>
             <td><%= user.name %></td>
-            <td><%= user.email %></td>
+            <td><a href="mailto:<%= user.email %>"><%= user.email %></a></td>
+            <td>True</td>
             <td></td>
-            <td><div class="btn-group"><button type="button" class="btn btn-warning">edit</button><button type="button" class="btn btn-danger">delete</button></div></td>
+            <td><div class="btn-group"><button type="button" class="btn btn-info">edit</button><button type="button" class="btn btn-warning">disable</button></div></td>
           </tr>
         <% end %>
       </tbody>
