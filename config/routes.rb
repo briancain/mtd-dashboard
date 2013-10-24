@@ -11,7 +11,7 @@ MtdDashboard::Application.routes.draw do
 
   get "dashboard/config"
   get "dashboard/home"
-  get "dashboard/index"
+  get "dashboard/manage"
   get "dashboard/network"
   get "dashboard/visualconfig"
   post "dashboard/file_upload"

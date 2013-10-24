@@ -18,7 +18,7 @@ module ApplicationHelper
         current_page?(route)
       end
     elsif dropdown_group == 'manage'
-      ["/dashboard/config", "/dashboard/index"].any? do | route |
+      ["/dashboard/config", "/dashboard/manage"].any? do | route |
         current_page?(route)
       end
     elsif dropdown_group == 'admin'

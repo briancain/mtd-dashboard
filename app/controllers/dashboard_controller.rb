@@ -12,8 +12,8 @@ class DashboardController < ApplicationController
     @nodes = get_fullstack_config
   end
 
-  # GET /dashboard/index
-  def index
+  # GET /dashboard/manage
+  def manage
     @users = User.all
     @nodes = get_fullstack_config
   end
@@ -57,7 +57,7 @@ class DashboardController < ApplicationController
     FileUtils.cp tmp.path, file
     puts "File uploaded to: public/uploads"
     # Put up file load success alert?
-    redirect_to("/dashboard/index", :notice => "File #{params[:configfile].original_filename} uploaded")
+    redirect_to("/dashboard/manage", :notice => "File #{params[:configfile].original_filename} uploaded")
   end
 
 end

@@ -50,7 +50,7 @@
             <% end %>
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Manage<b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a href="/dashboard/index">Manage</a></li>
+                  <li><a href="/dashboard/manage">Manage</a></li>
                   <li><a href="/dashboard/config">Config</a></li>
                   <li><a href="/dashboard/visualconfig">Visual Config</a></li>
                 </ul>
@@ -77,7 +77,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.name %><b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><%= link_to("Edit Profile", edit_user_registration_path) %></li>
-                <li><%= link_to("Hack the Planet", "/dashboard/index") %></li>
+                <li><%= link_to("Hack the Planet", "/dashboard/manage") %></li>
               </ul>
             </li>
             <form class="navbar-form navbar-right">
