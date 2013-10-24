@@ -1,6 +1,5 @@
 MtdDashboard::Application.routes.draw do
   get "admin/users"
-
   get "admin/settings"
 
   get "v1/users"

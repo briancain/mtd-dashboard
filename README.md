@@ -56,3 +56,7 @@ After authenticating, the user should be presented with an overview of the syste
 This view will be where a user can manage their MTD system. Currently, it is being used to show off different demo element features that could be integrated into the final product.
 
 Another view will show the configuration visualization demo that will depend on what the fullstack.yaml will look like.
+
+#### Admin View
+
+Contains a User view where an admin can see all users on the system...when they last logged in and the ip it was from, they can email the users if they want to...or "edit" or "disable" a user.
