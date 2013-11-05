@@ -18,7 +18,7 @@
     <table class="table table-hover table-bordered">
       <thead>
         <tr>
-          <th><div class="checkbox"><input type="checkbox"></div></th>
+          <th><div class="checkbox" onclick="selectBoxes()"><input type="checkbox" id="masterCheckbox"></div></th>
           <th>User</th>
           <th>Email</th>
           <th>Enabled</th>
@@ -29,7 +29,7 @@
       <tbody>
         <% @users.each do | user | %>
           <tr>
-            <td><div class="checkbox"><input type="checkbox"></div></td>
+            <td><div class="checkbox"><input type="checkbox" name="box"></div></td>
             <td><%= user.name %></td>
             <td><a href="mailto:<%= user.email %>"><%= user.email %></a></td>
             <td>True</td>
@@ -41,3 +41,23 @@
     </table>
   <% end %>
 </div>
+
+<script>
+  function selectBoxes() {
+    if (document.getElementById('masterCheckbox').checked) {
+      var chBoxs = document.getElementsByName('box');
+
+      for (var i = 0; i < chBoxs.length; i++) {
+        chBoxs[i].checked = true;
+      }
+    }
+    else {
+      var chBoxs = document.getElementsByName('box');
+
+      for (var i = 0; i < chBoxs.length; i++) {
+        chBoxs[i].checked = false;
+      }
+    }
+  }
+
+</script>
