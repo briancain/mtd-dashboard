@@ -96,7 +96,12 @@
           <div id="home" class="tab-pane fade active in">
             <h4>Config Inputs</h4><br/>
             <p>Create a goal</p>
-            <input class="form-control" id="focusedInput" type="text" placeholder="Enter goal name">
+            <div class="input-group">
+              <input type="text" class="form-control" id="goalNameText" placeholder="Enter goal name">
+              <span class="input-group-btn">
+                <button class="btn btn-default" enabled="true" id="goalNameButton" type="button" onclick="loadSubGoalName()">Go!</button>
+              </span>
+            </div><!-- /input-group -->
             <div id="goalName"></div>
             <div id="roleList"></div>
           </div>
@@ -136,6 +141,7 @@
   <script src="/js/ext-searchbox.js"></script>
   <script src="http://d3js.org/d3.v3.min.js"></script>
   <script src="/js/ace-editor-setup.js"></script>
+  <script src="/js/manageConfig.js"></script>
   <script>
     $('#navTab a:first').click(function (e) {
       e.preventDefault()
