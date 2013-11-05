@@ -8,7 +8,6 @@ MtdDashboard::Application.routes.draw do
 
   root :to => 'dashboard#home'
 
-  get "dashboard/config"
   get "dashboard/home"
   get "dashboard/manage"
   get "dashboard/network"
