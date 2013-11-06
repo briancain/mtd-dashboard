@@ -34,7 +34,9 @@ function loadRoles() {
 function addRole() {
   var roleListHTML = "<br/><p>Role List</p>",
       newRoles = $('#rolesText').val(),
-      roleArr;
+      roleArr,
+      goalName,
+      goalSubName;
 
   if (validateInput(newRoles)) {
     // split on ,
@@ -49,11 +51,35 @@ function addRole() {
 
     roleListHTML += "</select></div>";
 
-    roleListHTML += "<br/><button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#roleModal\">Configure Goals</button>"
-    // loop through resulting array and add to dropdown, move to next state
+    // modal button
+    roleListHTML += "<br/><button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#roleModal\">Configure Goals</button>";
 
-    $('#dropdownDiv').html(roleListHTML);
+    // modal popup
+    goalName = $('#goalNameText').val();
+    goalSubName = $('#goalSubNameText').val();
+
+    if (validateInput(goalName) && validateInput(goalSubName)) {
+      roleListHTML += generateGoalModal(goalName, goalSubName, roleArr);
+      $('#dropdownDiv').html(roleListHTML);
+    }
+
   }
+}
+
+function generateGoalModal(goalName, goalSubName, roleList) {
+  var modalHTML = "<!-- Modal --><div class=\"modal fade\" id=\"roleModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myRoleModalLabel\" aria-hidden=\"true\"><div class=\"modal-dialog\"><div class=\"modal-content\"><div class=\"modal-header\"><button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button><h4 class=\"modal-title\" id=\"myRoleModalLabel\">Proposed Goal Config</h4></div><div class=\"modal-body\">";
+
+  modalHTML += "<p>Below is the proposed Goal configuration</p><h2>Goal Name</h2><p>" + goalName + "</p><h2>Goal Sub Name</h2><p>" + goalSubName + "</p><h2>Role List</h2>";
+
+  modalHTML += "<ul>";
+  for(var role in roleList) {
+    modalHTML += "<li>" + roleList[role] + "</li>";
+  }
+  modalHTML += "</ul>";
+
+  modalHTML += "</div><div class=\"modal-footer\"><button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button><button type=\"button\" class=\"btn btn-primary\">Save changes</button></div></div><!-- /.modal-content --></div><!-- /.modal-dialog --></div><!-- /.modal -->";
+
+  return modalHTML;
 }
 
 function loadGoalConfig() {
