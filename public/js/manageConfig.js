@@ -49,7 +49,7 @@ function addRole() {
 
     roleListHTML += "</select></div>";
 
-    roleListHTML += "<br/><button type=\"button\" class=\"btn btn-primary\" onclick=\"loadGoalConfig()\">Continue</button>"
+    roleListHTML += "<br/><button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#roleModal\">Configure Goals</button>"
     // loop through resulting array and add to dropdown, move to next state
 
     $('#dropdownDiv').html(roleListHTML);
