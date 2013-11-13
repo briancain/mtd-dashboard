@@ -49,5 +49,3 @@ We need to seed our database with a few base users so we can log in.
 Launch rails and then navigate to localhost.
 
     $ rails s
-
-It will probably be hosted [here](http://localhost:3000/)
