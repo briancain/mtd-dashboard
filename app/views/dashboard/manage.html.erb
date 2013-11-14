@@ -85,44 +85,16 @@
     </div>
     <div class="col-md-6">
       <h1>Config</h1>
-        <ul class="nav nav-tabs" id="navTab" data-tabs="tabs">
-          <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
-          <li><a href="#nodes" data-toggle="tab">Nodes</a></li>
-          <li><a href="#messages" data-toggle="tab">Messages</a></li>
-          <li><a href="#settings" data-toggle="tab">Settings</a></li>
-        </ul>
-
-        <div id="navTabContent" class="tab-content">
-          <div id="home" class="tab-pane fade active in">
-            <h4>Config Inputs</h4><br/>
-            <p>Create a goal</p>
-            <div class="input-group">
-              <input type="text" class="form-control" id="goalNameText" placeholder="Enter goal name">
-              <span class="input-group-btn">
-                <button class="btn btn-default" enabled="true" id="goalNameButton" type="button" onclick="loadSubGoalName()">Go!</button>
-              </span>
-            </div><!-- /input-group -->
-            <div id="goalName"></div>
-            <div id="roleList"></div>
-            <div id="dropdownDiv"></div>
-          </div>
-          <div id="nodes" class="tab-pane">
-            <h4>Select role to configure</h4>
-            <select class="form-control">
-              <% unless @nodes.nil? -%>
-                <%= @nodes.each do | node | %>
-                  <option><%= node %></option>
-                <% end %>
-              <% end %>
-            </select>
-          </div>
-          <div id="messages" class="tab-pane">
-            <p>Hello there Messages</p>
-          </div>
-          <div id="settings" class="tab-pane">
-            <p>Hello there Settings</p>
-          </div>
-        </div>
+      <p>Create a goal</p>
+      <div class="input-group">
+        <input type="text" class="form-control" id="goalNameText" placeholder="Enter goal name">
+        <span class="input-group-btn">
+          <button class="btn btn-default" enabled="true" id="goalNameButton" type="button" onclick="loadSubGoalName()">Go!</button>
+        </span>
+      </div><!-- /input-group -->
+      <div id="subGoalName"></div>
+      <div id="roleList"></div>
+      <div id="rolesDropdown"></div>
     </div>
   </div><br/>
 

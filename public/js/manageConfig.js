@@ -7,36 +7,47 @@
  *
  */
 
+var goalName, subGoalName, roleArr;
+
+var goalNameTextLabel = '#goalNameText',
+    subGoalNameDiv = '#subGoalName',
+    subGoalNameTextLabel = '#goalSubNameText',
+    subGoalID = 'goalSubNameText',
+    rolesListDiv = '#roleList',
+    rolesTextLabel = '#rolesText',
+    rolesID = 'rolesText',
+    roleArrDropdownDiv = '#rolesDropdown';
+
 function loadSubGoalName() {
-  var goalName = $('#goalNameText').val(),
-      goalSubNameHTML = "";
+  var goalSubNameHTML = "";
+
+  goalName = $(goalNameTextLabel).val();
 
   if (validateInput(goalName)) {
     goalSubNameHTML = "<br/><p>Give your goal a subname</p>";
-    goalSubNameHTML += "<div class=\"input-group\"><input type=\"text\" class=\"form-control\" id=\"goalSubNameText\" placeholder=\"Enter sub-goal name\"><span class=\"input-group-btn\"><button class=\"btn btn-default\" type=\"button\" onclick=\"loadRoles()\">Go!</button></span></div><!-- /input-group -->";
+    goalSubNameHTML += "<div class=\"input-group\"><input type=\"text\" class=\"form-control\" id=\"" + subGoalID + "\" placeholder=\"Enter sub-goal name\"><span class=\"input-group-btn\"><button class=\"btn btn-default\" type=\"button\" onclick=\"loadRoles()\">Go!</button></span></div><!-- /input-group -->";
 
-    $('#goalName').html(goalSubNameHTML);
+    $(subGoalNameDiv).html(goalSubNameHTML);
   }
 }
 
 function loadRoles() {
-  var subGoalName = $('#goalSubNameText').val(),
-      rolesHTML = "";
+  var rolesHTML = "";
+
+  subGoalName = $(subGoalNameTextLabel).val();
 
   if (validateInput(subGoalName)) {
     rolesHTML = "<br/><p>Add comma separated roles (i.e. role1,role2,role3)</p>";
-    rolesHTML += "<div class=\"input-group\"><input type=\"text\" class=\"form-control\" id=\"rolesText\" placeholder=\"Enter a role\"><span class=\"input-group-btn\"><button class=\"btn btn-default\" type=\"button\" onclick=\"addRole()\">Add</button></span></div><!-- /input-group -->";
+    rolesHTML += "<div class=\"input-group\"><input type=\"text\" class=\"form-control\" id=\"" + rolesID + "\" placeholder=\"Enter a role\"><span class=\"input-group-btn\"><button class=\"btn btn-default\" type=\"button\" onclick=\"addRole()\">Add</button></span></div><!-- /input-group -->";
 
-    $('#roleList').html(rolesHTML);
+    $(rolesListDiv).html(rolesHTML);
   }
 }
 
 function addRole() {
   var roleListHTML = "<br/><p>Role List</p>",
-      newRoles = $('#rolesText').val(),
-      roleArr,
-      goalName,
-      goalSubName;
+      newRoles = $(rolesTextLabel).val(),
+      roleArr;
 
   if (validateInput(newRoles)) {
     // split on ,
@@ -45,7 +56,6 @@ function addRole() {
     roleListHTML += "<div id=\"nodes\" class=\"tab-pane\"><select class=\"form-control\">";
 
     for (var role in roleArr) {
-      console.log(roleArr[role]);
       roleListHTML += "<option>" + roleArr[role] + "</option>";
     }
 
@@ -55,12 +65,10 @@ function addRole() {
     roleListHTML += "<br/><button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#roleModal\">Configure Goals</button>";
 
     // modal popup
-    goalName = $('#goalNameText').val();
-    goalSubName = $('#goalSubNameText').val();
 
-    if (validateInput(goalName) && validateInput(goalSubName)) {
-      roleListHTML += generateGoalModal(goalName, goalSubName, roleArr);
-      $('#dropdownDiv').html(roleListHTML);
+    if (validateInput(goalName) && validateInput(subGoalName)) {
+      roleListHTML += generateGoalModal(goalName, subGoalName, roleArr);
+      $(roleArrDropdownDiv).html(roleListHTML);
     }
 
   }
@@ -77,12 +85,16 @@ function generateGoalModal(goalName, goalSubName, roleList) {
   }
   modalHTML += "</ul>";
 
-  modalHTML += "</div><div class=\"modal-footer\"><button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button><button type=\"button\" class=\"btn btn-primary\">Save changes</button></div></div><!-- /.modal-content --></div><!-- /.modal-dialog --></div><!-- /.modal -->";
+  modalHTML += "</div><div class=\"modal-footer\"><button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button><button type=\"button\" class=\"btn btn-primary\" onclick=\"loadRoleConfig()\">Save changes</button></div></div><!-- /.modal-content --></div><!-- /.modal-dialog --></div><!-- /.modal -->";
 
   return modalHTML;
 }
 
-function loadGoalConfig() {
+/*
+ *  Disable all goal textboxes and generate next steps
+ */
+function loadRoleConfig() {
+  $('#roleModal').modal('hide');
 
 }
 
