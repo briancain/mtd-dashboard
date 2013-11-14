@@ -4,7 +4,7 @@ A front end dashboard framework for Moving Target Defense and ANCOR.
 
 ### Project Status
 
-[![Build Status](https://travis-ci.org/briancain/mtd-dashboard.png?branch=master)](https://travis-ci.org/briancain/mtd-dashboard)
+[![Build Status](https://travis-ci.org/briancain/ancor-dashboard.png?branch=master)](https://travis-ci.org/briancain/ancor-dashboard)
 
 ## About Project
 
