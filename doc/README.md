@@ -1,10 +1,10 @@
-# Moving Target Defense Dashboard
+# ANCORD
 
-A front end dashboard framework for Moving Target Defense.
+__A__utomated Enterprise __N__etwork __C__ompiler __D__ashboard
 
 ### Project Status
 
-[![Build Status](https://travis-ci.org/briancain/mtd-dashboard.png?branch=master)](https://travis-ci.org/briancain/mtd-dashboard)
+[![Build Status](https://travis-ci.org/briancain/ancor-dashboard.png?branch=master)](https://travis-ci.org/briancain/ancor-dashboard)
 
 ## About Project
 
