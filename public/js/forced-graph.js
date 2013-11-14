@@ -1,20 +1,20 @@
 (function(){
   var links = [
-    {source: "Web Application", target: "Redis Server", type: "mtd"},
-    {source: "Web Application", target: "Web Application Load Balancer", type: "mtd"},
-    {source: "Web Application", target: "MySQL Slave Database", type: "mtd"},
-    {source: "Web Application", target: "MySQL Master Database", type: "mtd"},
-    {source: "Web Application Load Balancer", target: "Web Application", type: "mtd"},
-    {source: "Redis Server", target: "Web Application", type: "mtd"},
-    {source: "Redis Server", target: "Sidekiq Worker Application", type: "mtd"},
-    {source: "Sidekiq Worker Application", target: "Redis Server", type: "mtd"},
-    {source: "Sidekiq Worker Application", target: "MySQL Slave Database", type: "mtd"},
-    {source: "Sidekiq Worker Application", target: "MySQL Master Database", type: "mtd"},
-    {source: "MySQL Slave Database", target: "Web Application", type: "mtd"},
-    {source: "MySQL Slave Database", target: "Sidekiq Worker Application", type: "mtd"},
-    {source: "MySQL Slave Database", target: "MySQL Master Database", type: "mtd"},
-    {source: "MySQL Master Database", target: "MySQL Slave Database", type: "mtd"},
-    {source: "MySQL Master Database", target: "Sidekiq Worker Application", type: "mtd"}
+    {source: "Web Application", target: "Redis Server", type: "ancor"},
+    {source: "Web Application", target: "Web Application Load Balancer", type: "ancor"},
+    {source: "Web Application", target: "MySQL Slave Database", type: "ancor"},
+    {source: "Web Application", target: "MySQL Master Database", type: "ancor"},
+    {source: "Web Application Load Balancer", target: "Web Application", type: "ancor"},
+    {source: "Redis Server", target: "Web Application", type: "ancor"},
+    {source: "Redis Server", target: "Sidekiq Worker Application", type: "ancor"},
+    {source: "Sidekiq Worker Application", target: "Redis Server", type: "ancor"},
+    {source: "Sidekiq Worker Application", target: "MySQL Slave Database", type: "ancor"},
+    {source: "Sidekiq Worker Application", target: "MySQL Master Database", type: "ancor"},
+    {source: "MySQL Slave Database", target: "Web Application", type: "ancor"},
+    {source: "MySQL Slave Database", target: "Sidekiq Worker Application", type: "ancor"},
+    {source: "MySQL Slave Database", target: "MySQL Master Database", type: "ancor"},
+    {source: "MySQL Master Database", target: "MySQL Slave Database", type: "ancor"},
+    {source: "MySQL Master Database", target: "Sidekiq Worker Application", type: "ancor"}
   ];
 
   var nodes = {};

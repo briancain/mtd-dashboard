@@ -2,7 +2,7 @@ require 'spec_helper'
 
 
 describe "Dashboard Pages" do
-  page_base_title = 'MTD Dashboard'
+  page_base_title = 'ANCOR Dashboard'
 
   describe "Home Page View no Auth" do
     it "should not have the content 'Welcome'" do

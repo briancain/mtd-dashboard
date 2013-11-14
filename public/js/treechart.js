@@ -18,7 +18,7 @@ var vis = d3.select("#chart").append("svg:svg")
   .append("svg:g")
     .attr("transform", "translate(20,30)");
 
-d3.json("/mtd.json", function(json) {
+d3.json("/ancor.json", function(json) {
   json.x0 = 0;
   json.y0 = 0;
   update(root = json);

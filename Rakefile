@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-MtdDashboard::Application.load_tasks
+Dashboard::Application.load_tasks

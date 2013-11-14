@@ -1,4 +1,4 @@
-MtdDashboard::Application.routes.draw do
+Dashboard::Application.routes.draw do
   get "admin/users"
   get "admin/settings"
 

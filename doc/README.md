@@ -53,7 +53,7 @@ After authenticating, the user should be presented with an overview of the syste
 
 #### Manage View
 
-This view will be where a user can manage their MTD system. Currently, it is being used to show off different demo element features that could be integrated into the final product.
+This view will be where a user can manage their ANCOR system. Currently, it is being used to show off different demo element features that could be integrated into the final product.
 
 Another view will show the configuration visualization demo that will depend on what the fullstack.yaml will look like.
 
