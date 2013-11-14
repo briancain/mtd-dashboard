@@ -1,6 +1,6 @@
-# Moving Target Defense Dashboard
+# Automated Enterprise Network Compiler Dashboard
 
-A front end dashboard framework for Moving Target Defense.
+A front end dashboard framework for Moving Target Defense and ANCOR.
 
 ### Project Status
 
