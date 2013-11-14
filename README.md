@@ -1,6 +1,6 @@
-# Automated Enterprise Network Compiler Dashboard
+# ANCORD
 
-A front end dashboard framework for Moving Target Defense and ANCOR.
+__A__utomated E__n__terprise Network __C__ompiler __D__ashboard
 
 ### Project Status
 
