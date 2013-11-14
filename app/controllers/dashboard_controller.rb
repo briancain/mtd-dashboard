@@ -60,4 +60,9 @@ class DashboardController < ApplicationController
     redirect_to("/dashboard/manage", :notice => "File #{params[:configfile].original_filename} uploaded")
   end
 
+  # GET /dashboard/instanceview
+  def instances
+    
+  end
+
 end

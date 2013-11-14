@@ -12,8 +12,8 @@ Dashboard::Application.routes.draw do
   get "dashboard/manage"
   get "dashboard/network"
   get "dashboard/visualconfig"
+  get "dashboard/instances"
   post "dashboard/file_upload"
-  # post "dashboard/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
