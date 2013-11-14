@@ -1,6 +1,6 @@
 # ANCORD
 
-__A__utomated E__n__terprise Network __C__ompiler __D__ashboard
+__A__utomated Enterprise __N__etwork __C__ompiler __D__ashboard
 
 ### Project Status
 
