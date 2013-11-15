@@ -53,25 +53,47 @@ function addRole() {
     // split on ,
     roleArr = newRoles.split(",");
 
-    roleListHTML += "<div id=\"nodes\" class=\"tab-pane\"><select class=\"form-control\">";
-
-    for (var role in roleArr) {
-      roleListHTML += "<option>" + roleArr[role] + "</option>";
+    if (hasDuplicates(roleArr)) {
+      alert("This array as duplicate roles!");
     }
+    else {
+      roleListHTML += "<div id=\"nodes\" class=\"tab-pane\"><select class=\"form-control\">";
 
-    roleListHTML += "</select></div>";
+      for (var role in roleArr) {
+        roleListHTML += "<option>" + roleArr[role] + "</option>";
+      }
 
-    // modal button
-    roleListHTML += "<br/><button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#roleModal\">Configure Goals</button>";
+      roleListHTML += "</select></div>";
 
-    // modal popup
+      // modal button
+      roleListHTML += "<br/><button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#roleModal\">Configure Goals</button>";
 
-    if (validateInput(goalName) && validateInput(subGoalName)) {
-      roleListHTML += generateGoalModal(goalName, subGoalName, roleArr);
-      $(roleArrDropdownDiv).html(roleListHTML);
+      // modal popup
+
+      if (validateInput(goalName) && validateInput(subGoalName)) {
+        roleListHTML += generateGoalModal(goalName, subGoalName, roleArr);
+        $(roleArrDropdownDiv).html(roleListHTML);
+      }
     }
-
   }
+}
+
+function hasDuplicates(roleArr) {
+  var totalValues = {},
+      value;
+
+  for (var i = 0; i < roleArr.length; i++) {
+    value = roleArr[i];
+
+    if (Object.prototype.hasOwnProperty.call(totalValues, value)) {
+      return true;
+    }
+    else {
+      totalValues[value] = true;
+    }
+  }
+
+  return false;
 }
 
 function generateGoalModal(goalName, goalSubName, roleList) {
