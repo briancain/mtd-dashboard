@@ -62,7 +62,7 @@ class DashboardController < ApplicationController
 
   # GET /dashboard/instanceview
   def instances
-    
+    @data_hash = get_instance_data
   end
 
 end

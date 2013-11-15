@@ -19,14 +19,72 @@
 </head>
 
 <div class="container">
-  <h1>This is a test</h1>
+  <h1>Instance Overview</h1>
   <div class="row">
     <div class="col-md-8">
       <h2>Visual Side</h2>
     </div>
 
     <div class="col-md-4">
-      <h2>Info Side</h2>
+      <h2>Instance Details</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @data_hash['data'].each do |node, val| %>
+            <tr>
+              <td><%= node %></td>
+              <td><%= val %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <h2>Imports</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+          <% @data_hash['import']['imports'].each do |import_data| %>
+            <% import_data.each do |d, v| %>
+            <tr>
+              <td><%= d %></td>
+              <td><%= v %></td>
+            </tr>
+            <% end %>
+          <% end %>
+          </tr>
+        </tbody>
+      </table>
+      <h2>Exports</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+          <% @data_hash['export']['exports'].each do |export_data| %>
+            <% export_data.each do |d, v| %>
+            <tr>
+              <td><%= d %></td>
+              <td><%= v %></td>
+            </tr>
+            <% end %>
+          <% end %>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 

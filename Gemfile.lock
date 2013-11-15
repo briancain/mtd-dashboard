@@ -160,6 +160,7 @@ DEPENDENCIES
   facter
   jbuilder
   jquery-rails (= 2.0.2)
+  json
   less-rails (= 2.3.3)
   mongoid (~> 3.0.1)
   rails (= 3.2.14)

@@ -1,3 +1,5 @@
+require 'pp'
+
 module DashboardHelper
 
   # Reads in the full stack yaml
@@ -43,6 +45,40 @@ module DashboardHelper
       end
       puts "\n"
     end
+  end
+
+  # Gets instance data from ANCOR project
+  # in JSON format.
+  #
+  # Will eventually be gathering this data through
+  # a REST API. For now, will read from local
+  # directory
+  def get_instance_data
+    instance_data = JSON.parse(IO.read('public/ancor-api-sample/instances/528527014c9be8da23000001.json'))
+    instance_data_hash = {}
+    import_hash = {}
+    export_hash = {}
+    data_hash = {}
+
+    # pp instance_data
+
+    instance_data.each do |instance, data|
+      if instance == 'imports'
+        import_hash[instance] = data
+      elsif instance == 'exports'
+        export_hash[instance] = data
+      else
+        instance_data_hash[instance] = data
+      end
+    end
+
+    data_hash['data'] = instance_data_hash
+    data_hash['import'] = import_hash
+    data_hash['export'] = export_hash
+
+    pp data_hash
+
+    data_hash
   end
 
 end

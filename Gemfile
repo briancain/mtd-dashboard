@@ -7,6 +7,7 @@ gem 'facter'
 
 # JBuilder for formatting data in json
 gem 'jbuilder'
+gem 'json'
 
 group :development, :test do
   gem 'rspec-rails', '2.14.0'
