@@ -81,10 +81,10 @@ module DashboardHelper
     data_hash
   end
 
+  # Returns a hash of the json that contains all of the instances
+  # and their name, status, id, etc.
   def get_instance_status
     instance_status = JSON.parse(IO.read('public/ancor-api-sample/instances.json'))
-
-    pp instance_status
   end
 
 end
