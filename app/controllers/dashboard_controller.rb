@@ -45,6 +45,8 @@ class DashboardController < ApplicationController
     # get config hash
     @nodes = get_fullstack_config
 
+    @instance_status = get_instance_status
+
     # puts "###"
     # puts "Nodes in controller"
     # @nodes.each do | node |
@@ -52,7 +54,7 @@ class DashboardController < ApplicationController
     # end
 
     # Get nodes with import/exports
-    @node_map = get_import_export_map
+    # @node_map = get_import_export_map
   end
 
   # Upload a given network config

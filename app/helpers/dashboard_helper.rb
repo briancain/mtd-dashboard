@@ -81,4 +81,10 @@ module DashboardHelper
     data_hash
   end
 
+  def get_instance_status
+    instance_status = JSON.parse(IO.read('public/ancor-api-sample/instances.json'))
+
+    pp instance_status
+  end
+
 end
