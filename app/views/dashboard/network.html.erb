@@ -36,7 +36,7 @@
           </thead>
           <tbody>
             <% @instance_status.each do |instance| %>
-              <tr>
+              <tr onclick="generateInstance('<%= instance['id'] %>')">
                 <td><%= instance['name'] %></td>
                 <td><%= instance['interfaces'] %></td>
                 <% if instance['stage'] == 'undefined' %>
@@ -59,3 +59,15 @@
 
 <script src="http://d3js.org/d3.v2.js?2.9.1"></script>
 <script src="/js/forced-graph.js"></script>
+
+<script>
+/* TODO:
+   Access instance data structure
+   and get id from hash, display
+   modal view of specific instance data
+*/
+
+  function generateInstance(id) {
+    alert("america: " + id);
+  }
+</script>

@@ -47,6 +47,9 @@ class DashboardController < ApplicationController
 
     @instance_status = get_instance_status
 
+    # get all instance data
+    # to make available to view
+
     # puts "###"
     # puts "Nodes in controller"
     # @nodes.each do | node |
@@ -69,7 +72,7 @@ class DashboardController < ApplicationController
 
   # GET /dashboard/instanceview
   def instances
-    @data_hash = get_instance_data
+    @data_hash = get_instance_data '528527014c9be8da23000001'
   end
 
 end

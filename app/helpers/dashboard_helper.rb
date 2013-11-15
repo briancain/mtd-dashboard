@@ -53,8 +53,8 @@ module DashboardHelper
   # Will eventually be gathering this data through
   # a REST API. For now, will read from local
   # directory
-  def get_instance_data
-    instance_data = JSON.parse(IO.read('public/ancor-api-sample/instances/528527014c9be8da23000001.json'))
+  def get_instance_data(id)
+    instance_data = JSON.parse(IO.read("public/ancor-api-sample/instances/#{id}.json"))
     instance_data_hash = {}
     import_hash = {}
     export_hash = {}
