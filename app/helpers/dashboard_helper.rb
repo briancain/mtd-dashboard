@@ -76,9 +76,28 @@ module DashboardHelper
     data_hash['import'] = import_hash
     data_hash['export'] = export_hash
 
-    pp data_hash
+    # pp data_hash
 
     data_hash
+  end
+
+  def get_instances
+    instance_data = JSON.parse(IO.read("public/ancor-api-sample/instances.json"))
+    instance_ids = []
+    instances = {}
+
+    instance_data.each do |instance|
+      instance_ids.push(instance['id'])
+    end
+
+    # pp instance_ids
+
+    instance_ids.each do |id|
+      instances[id] = get_instance_data id
+    end
+
+    # puts "Here are all the instances"
+    instances
   end
 
   # Returns a hash of the json that contains all of the instances

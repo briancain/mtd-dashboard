@@ -1,5 +1,6 @@
 require 'yaml'
 require 'fileutils'
+require 'pp'
 
 class DashboardController < ApplicationController
   before_filter :authenticate_user!
@@ -46,6 +47,8 @@ class DashboardController < ApplicationController
     @nodes = get_fullstack_config
 
     @instance_status = get_instance_status
+
+    @instances = get_instances
 
     # get all instance data
     # to make available to view
