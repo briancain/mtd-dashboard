@@ -1,4 +1,4 @@
-<% provide(:title, 'Manage') %>
+<% provide(:title, 'Instances') %>
 <head>
 <link rel="stylesheet" href="/css/app.css">
   <style type="text/css">
@@ -22,71 +22,48 @@
   <h1>Instance Overview</h1>
   <div class="row">
     <div class="col-md-8">
-      <h2>Visual Side</h2>
+      <h3>Visual Side</h3>
+      <table class="table table-hover">
+        <thead>
+            <tr>
+              <th>Name</th>
+              <th>Interface</th>
+              <th>Stage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @instance_status.each do |instance| %>
+              <tr onclick="generateInstance('<%= instance['id'] %>')">
+                <td><%= instance['name'] %></td>
+                <td><%= instance['interfaces'] %></td>
+                <% if instance['stage'] == 'undefined' %>
+                  <td><span class="label label-danger"><%= instance['stage'] %></span></td>
+                <% elsif instance['stage'] == 'deploy' %>
+                  <td><span class="label label-success"><%= instance['stage'] %></span></td>
+                <% end %>
+              </tr>
+            <% end %>
+          </tbody>
+      </table>
+      <div id="directedNetworkDiv"></div>
     </div>
 
     <div class="col-md-4">
       <h3>Instance Details</h3>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Data</th>
-            <th>Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @data_hash['data'].each do |node, val| %>
-            <tr>
-              <td><%= node %></td>
-              <td><%= val %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <h3>Imports</h3>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Data</th>
-            <th>Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-          <% @data_hash['import']['imports'].each do |import_data| %>
-            <% import_data.each do |d, v| %>
-            <tr>
-              <td><%= d %></td>
-              <td><%= v %></td>
-            </tr>
-            <% end %>
-          <% end %>
-          </tr>
-        </tbody>
-      </table>
-      <h3>Exports</h3>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Data</th>
-            <th>Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-          <% @data_hash['export']['exports'].each do |export_data| %>
-            <% export_data.each do |d, v| %>
-            <tr>
-              <td><%= d %></td>
-              <td><%= v %></td>
-            </tr>
-            <% end %>
-          <% end %>
-          </tr>
-        </tbody>
-      </table>
-      <h3>Data Log</h3>
+      <div id="instanceInfo"></div>
+      <div id="importExportInfo"></div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><div id="panelHeading">Data Log</div></h3>
+        </div>
+        <div class="panel-body">
+          Log empty
+        </div>
+      </div>
     </div>
   </div>
 
 </div>
+
+<script src="/js/dashboard/network/queryAncorInstances.js"></script>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>

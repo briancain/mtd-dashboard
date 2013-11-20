@@ -76,6 +76,7 @@ class DashboardController < ApplicationController
   # GET /dashboard/instanceview
   def instances
     @data_hash = get_instance_data '528527014c9be8da23000001'
+    @instance_status = get_instance_status
   end
 
 end

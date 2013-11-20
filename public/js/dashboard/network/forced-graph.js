@@ -43,12 +43,12 @@
 
   var link = svg.selectAll("link")
       .data(force.links())
-    .enter().append("line")
+      .enter().append("line")
       .attr("class", "link");
 
   var node = svg.selectAll(".node")
       .data(force.nodes())
-    .enter().append("g")
+      .enter().append("g")
       .attr("class", "node")
       .on("mouseover", mouseover)
       .on("mouseout", mouseout)
