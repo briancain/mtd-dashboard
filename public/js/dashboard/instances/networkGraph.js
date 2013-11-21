@@ -34,3 +34,17 @@ function drawNetwork(){
   var options = {};
   var graph = new vis.Graph(container, data, options);
 }
+
+/*
+ *  Query Ancor for Instances
+ */
+function getInstances() {
+
+}
+
+/*
+ *  Query Ancor for Import/Exports
+ */
+function getEdges() {
+
+}
