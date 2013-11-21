@@ -45,7 +45,8 @@
             <% end %>
           </tbody>
       </table>
-      <div id="directedNetworkDiv"></div>
+      <div id="directedNetworkContainer">
+      </div>
     </div>
 
     <div class="col-md-4">
@@ -62,8 +63,12 @@
       </div>
     </div>
   </div>
-
 </div>
 
 <script src="/js/dashboard/network/queryAncorInstances.js"></script>
-<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jsPlumb/1.4.1/jquery.jsPlumb-1.4.1-all-min.js"></script>
+<script src="/js/dashboard/instances/networkGraph.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+  drawNetwork();
+</script>

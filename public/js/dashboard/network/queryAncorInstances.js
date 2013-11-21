@@ -1,3 +1,13 @@
+/*
+ * Instances JS
+ *
+ * This file will query the ANCOR REST API
+ * and parse the returned json to generate
+ * various tables relating to the data
+ * the functions ask for.
+ *
+ */
+
 /* TODO:
    Access instance data structure
    and get id from hash, display
@@ -6,7 +16,6 @@
 
 function generateInstance(id) {
   // console.log("id of instance: " + id);
-
   $.getJSON("/ancor-api-sample/instances/"+id+".json", function(result) {
     var instanceData = "<table class=\"table table-striped\"><thead><tr><th>Data</th><th>Value</th></tr></thead><tbody>",
         importExportData = "",
