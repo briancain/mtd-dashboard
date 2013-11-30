@@ -11,6 +11,7 @@ class DashboardController < ApplicationController
   def home
     @users = User.all
     @nodes = get_fullstack_config
+    @instance_status = get_instance_status
   end
 
   # GET /dashboard/manage

@@ -49,28 +49,28 @@
       </div>
       <div class="col-md-4">
         <h3>Network Table</h3>
-          <table class="table table-hover">
-            <thead>
+        <table class="table table-hover">
+          <thead>
               <tr>
-                <th>Node</th>
-                <th>Status</th>
+                <th>Name</th>
+                <th>Interface</th>
+                <th>Stage</th>
               </tr>
             </thead>
             <tbody>
-              <% @nodes.each do |node| %>
-                <tr>
-                  <td><%= node %></td>
-                  <% if node == 'Sidekiq worker application' %>
-                    <td><span class="label label-warning">Unknown</span></td>
-                  <% elsif node == 'Web application load balancer' %>
-                    <td><span class="label label-danger">Service Down</span></td>
-                  <% else %>
-                    <td><span class="label label-success">Running</span></td>
+              <% @instance_status.each do |instance| %>
+                <tr onclick="generateInstance('<%= instance['id'] %>')">
+                  <td><%= instance['name'] %></td>
+                  <td><%= instance['interfaces'] %></td>
+                  <% if instance['stage'] == 'undefined' %>
+                    <td><span class="label label-danger"><%= instance['stage'] %></span></td>
+                  <% elsif instance['stage'] == 'deploy' %>
+                    <td><span class="label label-success"><%= instance['stage'] %></span></td>
                   <% end %>
                 </tr>
               <% end %>
             </tbody>
-          </table>
+        </table>
         <h3>Real Time Data Bar Chart</h3>
         <h5>MySQL</h5>
         <div id="barChart"></div>
@@ -96,6 +96,7 @@
 <script src="/js/dashboard/home/clippy-start.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/cubism/1.2.2/cubism.v1.min.js"></script>
 <script src="/js/dashboard/home/cube-chart.js"></script>
+<script src="/js/dashboard/network/queryAncorInstances.js"></script>
 
 <script>
   cubeChart('#barChart', 'customChartBlue');
