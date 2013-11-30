@@ -10,9 +10,9 @@ var context = cubism.context()
     .step(1e3)
     .size(960);
 
-var sidekiq = random("Sidekiq"),
-    mysql = random("MySQL");
-    redis = random("Redis");
+var sidekiq = random("web0"),
+    mysql = random("db0");
+    redis = random("weblb0");
 
 function random(name) {
   var value = 0,

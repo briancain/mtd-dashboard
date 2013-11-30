@@ -9,6 +9,8 @@
  *
  *  barColorStyle should be the css element in `rt-chart.css` in string form
  *
+ *  Related JS Files: cube-chart.js
+ *
  *  Brian Cain
  */
 

@@ -9,6 +9,9 @@
 
 function drawNetwork(){
   // create an array with nodes
+  //
+  // Call REST API to generate
+  // node list
   var nodes = [
       {id: 1, label: 'Node 1'},
       {id: 2, label: 'Node 2'},
@@ -18,6 +21,9 @@ function drawNetwork(){
   ];
 
   // create an array with edges
+  //
+  // Get function to generate edges
+  // dataset
   var edges = [
       {from: 1, to: 2},
       {from: 1, to: 3},
