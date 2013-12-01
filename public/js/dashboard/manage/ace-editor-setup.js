@@ -8,7 +8,7 @@ editor.getSession().setUseSoftTabs(true);
 
 var undoRedoManager = editor.getSession().getUndoManager();
 
-$.get('/tmp/fullstack.yaml', function(data) {
+$.get('/uploads/fullstack.yaml', function(data) {
     editor.insert(data);
 });
 
@@ -46,8 +46,17 @@ function doRedo() {
   }
 }
 
-function saveInfo(path) {
+function saveInfo() {
+  var editor = ace.edit("editor");
+      data = editor.getSession().getValue();
 
+  $.post("/dashboard/manage",
+            {contents: data },
+            function() {
+                    // add error checking
+                    alert('successful save');
+            }
+    );
 }
 
 function displayInfo() {

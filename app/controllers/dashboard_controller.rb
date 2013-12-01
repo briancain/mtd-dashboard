@@ -20,15 +20,6 @@ class DashboardController < ApplicationController
     @nodes = get_fullstack_config
   end
 
-  # POST /dashboard/index
-  # def index
-  #   tmp = params[:configfile]
-  #   file = File.join("public", "uploads", params[:configfile].original_filename)
-  #   FileUtils.cp tmp.path, file
-  #   puts "File uploaded to: public/uploads"
-  #   # Put up file load success alert?
-  # end
-
   # GET /dashboard/network
   def network
     # TODO:

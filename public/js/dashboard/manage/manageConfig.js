@@ -116,8 +116,21 @@ function generateGoalModal(goalName, goalSubName, roleList) {
  *  Disable all goal textboxes and generate next steps
  */
 function loadRoleConfig() {
+  var roleListHTML = "<h1>Roles</h1><p>Select role to configure below</p>";
+      newRoles = $(rolesTextLabel).val(),
+      roleArr = newRoles.split(",");
+
   $('#roleModal').modal('hide');
 
+  roleListHTML += "<div id=\"nodes\" class=\"tab-pane\"><select class=\"form-control\">";
+
+  for (var role in roleArr) {
+    roleListHTML += "<option>" + roleArr[role] + "</option>";
+  }
+
+  roleListHTML += "</select></div>";
+
+  $('#confDiv').html(roleListHTML);
 }
 
 /*
