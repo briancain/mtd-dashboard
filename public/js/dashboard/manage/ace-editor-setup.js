@@ -13,6 +13,7 @@ $.get('/uploads/fullstack.yaml', function(data) {
 });
 
 $(document).ready(function() {
+  alert("ready");
   move();
 });
 
@@ -75,5 +76,5 @@ function aboutEditor() {
 function aboutAngular() {
   var msg = "This demo shows off AngularJS. It has a controller where it stores the 3 default values you see, and uses the view to retrieve and display them.";
 
-  alert(msg)
+  alert(msg);
 }
