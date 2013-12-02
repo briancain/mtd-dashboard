@@ -122,8 +122,9 @@ function loadRoleConfig() {
 
   $('#roleModal').modal('hide');
 
-  roleListHTML += "<div id=\"nodes\" class=\"tab-pane\"><select class=\"form-control\">";
+  roleListHTML += "<div id=\"nodes\" class=\"tab-pane\"><select class=\"form-control\" id=\"roleDropDown\" onchange=\"confRole()\">";
 
+    roleListHTML += "<option></option>";
   for (var role in roleArr) {
     roleListHTML += "<option>" + roleArr[role] + "</option>";
   }
@@ -131,6 +132,12 @@ function loadRoleConfig() {
   roleListHTML += "</select></div>";
 
   $('#confDiv').html(roleListHTML);
+}
+
+function confRole() {
+  var role = $('#roleDropDown')[0];
+
+  alert(role.value);
 }
 
 /*
