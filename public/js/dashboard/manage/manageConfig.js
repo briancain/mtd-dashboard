@@ -45,7 +45,7 @@ function loadRoles() {
 }
 
 function addRole() {
-  var roleListHTML = "<br/><p>Role List</p>",
+  var roleListHTML = "<br/>",
       newRoles = $(rolesTextLabel).val(),
       roleArr;
 
@@ -57,14 +57,6 @@ function addRole() {
       alert("This array as duplicate roles!");
     }
     else {
-      roleListHTML += "<div id=\"nodes\" class=\"tab-pane\"><select class=\"form-control\">";
-
-      for (var role in roleArr) {
-        roleListHTML += "<option>" + roleArr[role] + "</option>";
-      }
-
-      roleListHTML += "</select></div>";
-
       // modal button
       roleListHTML += "<br/><button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#roleModal\">Configure Goals</button>";
 
@@ -124,7 +116,7 @@ function loadRoleConfig() {
 
   roleListHTML += "<div id=\"nodes\" class=\"tab-pane\"><select class=\"form-control\" id=\"roleDropDown\" onchange=\"confRole()\">";
 
-    roleListHTML += "<option></option>";
+  roleListHTML += "<option></option>";
   for (var role in roleArr) {
     roleListHTML += "<option>" + roleArr[role] + "</option>";
   }
