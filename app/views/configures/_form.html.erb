@@ -1,7 +1,7 @@
 <%= form_for(@configure) do |f| %>
   <% if @configure.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@configure.errors.count, "error") %> prohibited this configure from being saved:</h2>
+      <h2><%= pluralize(@configure.errors.count, "error") %> prohibited this configuration from being saved:</h2>
 
       <ul>
       <% @configure.errors.full_messages.each do |msg| %>
@@ -13,13 +13,13 @@
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :placeholder => "New Config Name" %>
   </div>
   <div class="field">
     <%= f.label :content %><br />
     <%= f.text_area :content %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Create Configuration", :class => "btn btn-primary" %>
   </div>
 <% end %>
