@@ -1,4 +1,7 @@
 Dashboard::Application.routes.draw do
+  resources :configures
+
+
   get "admin/users"
   get "admin/settings"
 

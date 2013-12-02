@@ -1,0 +1,41 @@
+<% provide(:title, 'Index') %>
+<head>
+  <style type="text/css">
+    body {
+      padding-top: 50px;
+    }
+
+    .starter-template {
+      padding: 40px 15px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<div class="container">
+  <h1>Available ANCOR Configs</h1>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Content</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+  <% @configures.each do |configure| %>
+    <tr>
+      <td><%= configure.name %></td>
+      <td><%= configure.content %></td>
+      <td><%= link_to 'Show', configure %></td>
+      <td><%= link_to 'Edit', edit_configure_path(configure) %></td>
+      <td><%= link_to 'Destroy', configure, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </table>
+
+  <br />
+
+  <%= link_to 'New Configure', new_configure_path %>
+</div>

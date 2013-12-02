@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @configure.name %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @configure.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_configure_path(@configure) %> |
+<%= link_to 'Back', configures_path %>

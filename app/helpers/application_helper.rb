@@ -18,11 +18,15 @@ module ApplicationHelper
         current_page?(route)
       end
     elsif dropdown_group == 'manage'
-      ["/dashboard/config", "/dashboard/manage"].any? do | route |
+      ["/dashboard/visualconfig", "/dashboard/manage", "/dashboard/instances"].any? do | route |
         current_page?(route)
       end
     elsif dropdown_group == 'admin'
       ["/admin/users", "/admin/settings"].any? do | route |
+        current_page?(route)
+      end
+    elsif dropdown_group == 'configures'
+      ["/configures", "/configures/new"].any? do | route |
         current_page?(route)
       end
     end
