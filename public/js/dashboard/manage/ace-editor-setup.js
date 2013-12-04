@@ -13,7 +13,6 @@ $.get('/uploads/fullstack.yaml', function(data) {
 });
 
 $(document).ready(function() {
-  alert("ready");
   move();
 });
 
