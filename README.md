@@ -41,7 +41,7 @@ Other frameworks used in this project
 - [Jbuilder](https://github.com/rails/jbuilder)
 - [LESS Rails](https://rubygems.org/gems/less-rails)
 - [Mongoid](http://mongoid.org/en/mongoid/index.html)
-- [Twitter Bootstrap 3.0.2](http://getbootstrap.com/)
+- [Twitter Bootstrap 3.0.3](http://getbootstrap.com/)
 
 ## More information
 
