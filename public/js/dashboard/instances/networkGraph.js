@@ -113,41 +113,46 @@ function getInstances() {
  *  resolved - dotted line
  */
 function getEdges() {
- var links = [
-    {source: "web0", target: "db0", type: "licensing"},
-    {source: "web0", target: "http", type: "suit"},
-    {source: "weblb0", target: "http", type: "licensing"},
-    {source: "db0", target: "web0", type: "resolved"}
-    // {source: "Microsoft", target: "Amazon", type: "licensing"},
-    // {source: "Microsoft", target: "HTC", type: "licensing"},
-    // {source: "Samsung", target: "Apple", type: "suit"},
-    // {source: "Motorola", target: "Apple", type: "suit"},
-    // {source: "Nokia", target: "Apple", type: "resolved"},
-    // {source: "HTC", target: "Apple", type: "suit"},
-    // {source: "Kodak", target: "Apple", type: "suit"},
-    // {source: "Microsoft", target: "Barnes & Noble", type: "suit"},
-    // {source: "Microsoft", target: "Foxconn", type: "suit"},
-    // {source: "Oracle", target: "Google", type: "suit"},
-    // {source: "Apple", target: "HTC", type: "suit"},
-    // {source: "Microsoft", target: "Inventec", type: "suit"},
-    // {source: "Samsung", target: "Kodak", type: "resolved"},
-    // {source: "LG", target: "Kodak", type: "resolved"},
-    // {source: "RIM", target: "Kodak", type: "suit"},
-    // {source: "Sony", target: "LG", type: "suit"},
-    // {source: "Kodak", target: "LG", type: "resolved"},
-    // {source: "Apple", target: "Nokia", type: "resolved"},
-    // {source: "Qualcomm", target: "Nokia", type: "resolved"},
-    // {source: "Apple", target: "Motorola", type: "suit"},
-    // {source: "Microsoft", target: "Motorola", type: "suit"},
-    // {source: "Motorola", target: "Microsoft", type: "suit"},
-    // {source: "Huawei", target: "ZTE", type: "suit"},
-    // {source: "Ericsson", target: "ZTE", type: "suit"},
-    // {source: "Kodak", target: "Samsung", type: "resolved"},
-    // {source: "Apple", target: "Samsung", type: "suit"},
-    // {source: "Kodak", target: "RIM", type: "suit"},
-    // {source: "Nokia", target: "Qualcomm", type: "suit"}
+  console.log("Get edges");
+  // var links = [];
+  var links = [
+    {source: "web0", target: "mysql_querying", type: "resolved"},
+    {source: "web0", target: "http", type: "resolved"},
+    {source: "http", target: "web0", type: "suit"},
+    {source: "mysql_querying", target: "db0", type: "suit"},
+    {source: "weblb0", target: "http", type: "suit"}
     ];
 
+  var generatedLinks = [];
+
+  $.getJSON("/ancor-api-sample/instances.json", function(instance) {
+    for (var obj in instance) {
+      var id = instance[obj]["id"];
+      $.getJSON("/ancor-api-sample/instances/"+id+".json", function(result) {
+        if (result["imports"].length >= 1) {
+          if (result["stage"] == "undefined") {
+            generatedLinks.push({source: result["name"], target: result["imports"][0]["slug"], type: "resolved"});
+          } else {
+            generatedLinks.push({source: result["name"], target: result["imports"][0]["slug"], type: "suit"});
+          }
+        }
+
+        if (result["exports"].length >= 1) {
+          if (result["stage"] == "undefined") {
+            generatedLinks.push({source: result["exports"][0]["slug"], target: result["name"], type: "resolved"});
+          } else {
+            generatedLinks.push({source: result["exports"][0]["slug"], target: result["name"], type: "suit"});
+          }
+        }
+      });
+    }
+  });
+  // console.log(links);
+  // console.log(links.length);
+  // // console.log("Generated Links");
+  // // console.log(generatedLinks);
+  console.log(links);
+  console.log(generatedLinks);
   return links;
 }
 
