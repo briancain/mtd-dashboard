@@ -107,16 +107,16 @@ function getInstances() {
 /*
  *  Query Ancor for Import/Exports
  *
- *  licensing
- *  suit
- *  resolved
+ *  licensing - green line
+ *  suit - solid line
+ *  resolved - dotted line
  */
 function getEdges() {
  var links = [
     {source: "web0", target: "db0", type: "licensing"},
-    {source: "web0", target: "http", type: "licensing"},
+    {source: "web0", target: "http", type: "suit"},
     {source: "weblb0", target: "http", type: "licensing"},
-    {source: "db0", target: "web0", type: "licensing"}
+    {source: "db0", target: "web0", type: "resolved"}
     // {source: "Microsoft", target: "Amazon", type: "licensing"},
     // {source: "Microsoft", target: "HTC", type: "licensing"},
     // {source: "Samsung", target: "Apple", type: "suit"},
