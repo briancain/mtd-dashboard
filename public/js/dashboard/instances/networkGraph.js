@@ -5,6 +5,7 @@
  */
 
 // http://blog.thomsonreuters.com/index.php/mobile-patent-suits-graphic-of-the-day/
+
 var links = getEdges();
 var nodes = {};
 
@@ -21,7 +22,7 @@ var force = d3.layout.force()
     .nodes(d3.values(nodes))
     .links(links)
     .size([w, h])
-    .linkDistance(60)
+    .linkDistance(100)
     .charge(-300)
     .on("tick", tick)
     .start();
@@ -53,7 +54,7 @@ var path = svg.append("svg:g").selectAll("path")
 var circle = svg.append("svg:g").selectAll("circle")
     .data(force.nodes())
   .enter().append("svg:circle")
-    .attr("r", 6)
+    .attr("r", 9)
     .call(force.drag);
 
 circle.on("click", function(d) {
@@ -148,4 +149,10 @@ function getEdges() {
     ];
 
   return links;
+}
+
+var k = 0;
+while ((force.alpha() > 1e-2) && (k < 150)) {
+    force.tick(),
+    k = k + 1;
 }
