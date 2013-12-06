@@ -15,10 +15,45 @@
       filter: alpha(opacity=50);
     }
 
-    #directedNetworkContainer {
-      width: 700px;
-      height: 400px;
-      border: 1px solid lightgray;
+    // #directedNetworkContainer {
+    //   width: 700px;
+    //   height: 400px;
+    //   border: 1px solid lightgray;
+    // }
+
+    path.link {
+      fill: none;
+      stroke: #666;
+      stroke-width: 1.5px;
+    }
+
+    marker#licensing {
+      fill: green;
+    }
+
+    path.link.licensing {
+      stroke: green;
+    }
+
+    path.link.resolved {
+      stroke-dasharray: 0,2 1;
+    }
+
+    circle {
+      fill: #ccc;
+      stroke: #333;
+      stroke-width: 1.5px;
+    }
+
+    text {
+      font: 10px sans-serif;
+      pointer-events: none;
+    }
+
+    text.shadow {
+      stroke: #fff;
+      stroke-width: 3px;
+      stroke-opacity: .8;
     }
   </style>
 </head>
@@ -71,7 +106,9 @@
 </div>
 
 <script src="/js/dashboard/network/queryAncorInstances.js"></script>
-<script src="http://visjs.org/vis.js"></script>
+<script src="http://mbostock.github.com/d3/d3.js?1.29.1"></script>
+<script src="http://mbostock.github.com/d3/d3.geom.js?1.29.1"></script>
+<script src="http://mbostock.github.com/d3/d3.layout.js?1.29.1"></script>
 <script src="/js/dashboard/instances/networkGraph.js"></script>
 
 <script type="text/javascript" charset="utf-8">
