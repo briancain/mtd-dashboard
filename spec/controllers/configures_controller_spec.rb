@@ -30,13 +30,13 @@ describe ConfiguresController do
   # ConfiguresController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  describe "GET index" do
-    it "assigns all configures as @configures" do
-      configure = Configure.create! valid_attributes
-      get :index, {}, valid_session
-      assigns(:configures).should eq([configure])
-    end
-  end
+  # describe "GET index" do
+  #   it "assigns all configures as @configures" do
+  #     configure = Configure.create! valid_attributes
+  #     get :index, {}, valid_session
+  #     assigns(:configures).should eq([configure])
+  #   end
+  # end
 
   describe "GET show" do
     it "assigns the requested configure as @configure" do
