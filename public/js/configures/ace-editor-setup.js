@@ -1,7 +1,7 @@
 var editor = ace.edit("newEditor"),
     YAMLMode = require("ace/mode/yaml").Mode;
 
-editor.setValue("");
+editor.setValue($('textarea#configure_content').val());
 editor.getSession().setMode(new YAMLMode());
 editor.getSession().setTabSize(2);
 editor.getSession().setUseWrapMode(true);
@@ -17,6 +17,18 @@ function move() {
   var editor = ace.edit("newEditor");
 
   editor.gotoLine(0);
+}
+
+function insertNewKeyData(data) {
+  var msg = "";
+  if (data == 'goals') {
+    msg = "goals:\n\texample_goal:\n\t\tname: TemplateName\n\troles:\n\t\t\t- TemplateRole";
+  }
+  else if (data == 'roles') {
+    msg = "\n\texampleRole:\n\t\tname: TemplateName\n\t\tmin: 1\n\t\texports:\n\t\t\t- export_example\n\t\t\t- export_example_two\n\t\timports:\n\t\t\t- example_import";
+  }
+
+  editor.insert(msg);
 }
 
 function saveNewConfig() {

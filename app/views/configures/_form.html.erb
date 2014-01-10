@@ -21,9 +21,9 @@
   </div>
   <div class="field">
     <%= f.text_area :content, :style => "display:none;"%>
-    <div id="newEditor"></div>
-    <script src="/js/configures/ace-editor-setup.js"></script>
+    <%= render 'ace' %>
   </div>
+  </br></br>
   <div class="actions">
     <%= f.submit "Save Configuration", :class => "btn btn-primary", :onclick => "saveNewConfig()"%>
   </div>

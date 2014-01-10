@@ -1,0 +1,13 @@
+<div class="btn-group">
+  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+    Load Preset <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <li><a href="#" onclick="insertNewKeyData('goals')">goal</a></li>
+    <li><a href="#" onclick="insertNewKeyData('roles')">role</a></li>
+  </ul>
+</div>
+<div id="newEditor"></div></br>
+<button type="button" class="btn btn-default" onclick="doUndo()">Undo</button>
+<button type="button" class="btn btn-default" onclick="doRedo()">Redo</button>
+<script src="/js/configures/ace-editor-setup.js"></script>
