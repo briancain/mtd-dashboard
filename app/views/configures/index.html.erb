@@ -24,20 +24,33 @@
       <th></th>
     </tr>
 
-  <% @configures.each do |configure| %>
-    <tr>
-      <td><%= configure.name %></td>
-      <td><%= configure.content %></td>
-      <td><%= link_to 'Show', configure %></td>
-      <td><%= link_to 'Edit', edit_configure_path(configure) %></td>
-      <td><%= link_to 'Destroy', configure, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
+  <% if admin? current_user.name %>
+    <% @configures.each do |configure| %>
+      <tr>
+        <td><%= configure.name %></td>
+        <td><%= configure.content %></td>
+        <td><%= link_to 'Show', configure %></td>
+        <td><%= link_to 'Edit', edit_configure_path(configure) %></td>
+        <td><%= link_to 'Destroy', configure, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    </table>
+  <% else %>
+    <% @configures.each do |configure| %>
+      <tr>
+        <td><%= configure.name %></td>
+        <td><%= configure.content %></td>
+        <td><%= link_to 'Show', configure %></td>
+      </tr>
+    <% end %>
+    </table>
   <% end %>
-  </table>
 
   <br />
 
-  <%= link_to 'New Configure', new_configure_path %>
+  <% if admin? current_user.name %>
+    <%= link_to 'New Configure', new_configure_path %>
+  <% end %>
 
 
 </div>

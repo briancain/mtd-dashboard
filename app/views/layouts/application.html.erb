@@ -65,7 +65,9 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Configures<b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li><a href="/configures">Index</a></li>
-                  <li><a href="/configures/new">New</a></li>
+                  <% if admin? current_user.name %>
+                    <li><a href="/configures/new">New</a></li>
+                  <% end %>
                 </ul>
             </li>
             <% if admin? current_user.name %>
