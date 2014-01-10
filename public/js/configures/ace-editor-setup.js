@@ -19,6 +19,13 @@ function move() {
   editor.gotoLine(0);
 }
 
+function saveNewConfig() {
+  var editor = ace.edit("newEditor"),
+      data = editor.getValue();
+
+  $('textarea#configure_content').val(data);
+}
+
 function doUndo() {
   if (undoRedoManager.hasUndo()) {
     undoRedoManager.undo();
