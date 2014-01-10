@@ -9,6 +9,12 @@
       padding: 40px 15px;
       text-align: center;
     }
+
+    #newEditor {
+        // position: absolute;
+        width: 500px;
+        height: 400px;
+    }
   </style>
 </head>
 
@@ -19,4 +25,11 @@
   <%= render 'form' %>
 
   <%= link_to 'Back', configures_path %>
+
+  <div id="newEditor"></div>
 </div>
+
+<script src="/js/ace.js"></script>
+<script src="/js/mode-yaml.js"></script>
+<script src="/js/ext-searchbox.js"></script>
+<script src="/js/configures/ace-editor-setup.js"></script>

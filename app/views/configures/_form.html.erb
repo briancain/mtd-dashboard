@@ -1,3 +1,7 @@
+<script src="/js/ace.js"></script>
+<script src="/js/mode-yaml.js"></script>
+<script src="/js/ext-searchbox.js"></script>
+
 <%= form_for(@configure) do |f| %>
   <% if @configure.errors.any? %>
     <div id="error_explanation">
@@ -16,10 +20,12 @@
     <%= f.text_field :name, :placeholder => "New Config Name" %>
   </div>
   <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
+    <%= f.text_area :content, :style => "display:none;"%>
+    <div id="newEditor"></div>
   </div>
   <div class="actions">
     <%= f.submit "Save Configuration", :class => "btn btn-primary" %>
   </div>
 <% end %>
+
+<script src="/js/configures/ace-editor-setup.js"></script>
