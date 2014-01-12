@@ -1,15 +1,38 @@
+<head>
+  <style type="text/css">
+    body {
+      padding-top: 50px;
+    }
+
+    .starter-template {
+      padding: 40px 15px;
+      text-align: center;
+    }
+  </style>
+</head>
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @configure.name %>
-</p>
+<div class="container">
+  <h1>Configuration</h1>
+  <p>
+    <b>Name:</b>
+    <%= @configure.name %>
+  </p>
 
-<p>
-  <b>Content:</b>
-  <%= @configure.content %>
-</p>
+  <p>
+    <b>Content:</b>
+    <%= @configure.content %>
+  </p>
 
+  <button type="button" class="btn-primary" onclick="applyConfig()">Apply</button></br></br>
 
-<%= link_to 'Edit', edit_configure_path(@configure) %> |
-<%= link_to 'Back', configures_path %>
+  <%= link_to 'Edit', edit_configure_path(@configure) %> |
+  <%= link_to 'Back', configures_path %>
+</div>
+
+<script>
+  function applyConfig() {
+    alert("Config going to ANCOR....");
+  }
+</script>
