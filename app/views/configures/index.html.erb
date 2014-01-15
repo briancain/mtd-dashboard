@@ -1,4 +1,4 @@
-<% provide(:title, 'Index') %>
+<% provide(:title, 'Configuration') %>
 <head>
   <style type="text/css">
     body {
@@ -19,7 +19,7 @@
     <tr>
       <th>Name</th>
       <th>Content</th>
-      <th></th>
+      <th>Current Config</th>
       <th></th>
       <th></th>
     </tr>
@@ -29,6 +29,7 @@
       <tr>
         <td><%= configure.name %></td>
         <td><%= configure.content %></td>
+        <td><%= configure.current_config %></td>
         <td><%= link_to 'Show', configure %></td>
         <td><%= link_to 'Edit', edit_configure_path(configure) %></td>
         <td><%= link_to 'Destroy', configure, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -40,6 +41,7 @@
       <tr>
         <td><%= configure.name %></td>
         <td><%= configure.content %></td>
+        <td><%= configure.current_config %></td>
         <td><%= link_to 'Show', configure %></td>
       </tr>
     <% end %>

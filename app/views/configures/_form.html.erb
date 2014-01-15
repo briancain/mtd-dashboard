@@ -23,6 +23,10 @@
     <%= f.text_area :content, :style => "display:none;"%>
     <%= render 'ace' %>
   </div>
+  <div class="field">
+    <%= f.label :current_config %></br>
+    <%= f.check_box :current_config %>
+  </div>
   </br></br>
   <div class="actions">
     <%= f.submit "Save Configuration", :class => "btn btn-primary", :onclick => "saveNewConfig()"%>

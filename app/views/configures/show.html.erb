@@ -25,6 +25,11 @@
     <%= @configure.content %>
   </p>
 
+  <p>
+    <b>Current Config?:</b>
+    <%= @configure.current_config %>
+  </p>
+
   <button type="button" class="btn-primary" onclick="applyConfig()">Apply</button></br></br>
 
   <%= link_to 'Edit', edit_configure_path(@configure) %> |
