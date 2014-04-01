@@ -4,7 +4,7 @@ __A__utomated Enterprise __N__etwork __C__ompiler __D__ashboard
 
 ### Project Status
 
-[![Build Status](https://travis-ci.org/briancain/ancor-dashboard.png?branch=master)](https://travis-ci.org/briancain/ancor-dashboard)
+This project is no longer maintained and has moved to [here](https://github.com/arguslab/ancor-dashboard)
 
 ## About Project
 
